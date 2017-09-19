@@ -4,15 +4,13 @@ if exists("b:current_syntax")
     finish
 endif
 
-
-echom "About to run pplc Comment line"
-syntax match pplcComment "\v^[0-9]{5}\tC.*$"
-highlight link pplcComment Comment
+syntax match pplcNumber "\v%>6c<([0-9]+\.?[0-9])>"
+highlight link pplcType Number
 
 syntax match pplcVariable "\v\%.{-}\%"
 highlight link pplcVariable Keyword
 
-syntax keyword pplcKeyword THEN IF ELSE GOTO
+syntax keyword pplcKeyword THEN IF ELSE GOTO GOSUB
 syntax match pplcKeyword "\v\.AND\."
 syntax match pplcKeyword "\v\.OR\."
 syntax match pplcKeyword "\v\.NE\."
@@ -21,8 +19,9 @@ syntax match pplcKeyword "\v\.LE\."
 syntax match pplcKeyword "\v\.LT\."
 syntax match pplcKeyword "\v\.GE\."
 syntax match pplcKeyword "\v\.GT\."
+syntax match pplcKeyword "\vRETURN"
 
-highlight link pplcKeyword Keyword
+highlight link pplcKeyword Conditional
 
 syntax match pplcFunction "\vTABLE\ze\("
 syntax match pplcFunction "\vSET\ze\("
@@ -35,19 +34,19 @@ syntax match pplcFunction "\vSAMPLE\ze\("
 highlight link pplcFunction Function
 
 syntax match pplcType "FAILED"
-syntax match pplcType "OFF"
+syntax match pplcType "\v<OFF>"
+syntax match pplcType "\v<ON>"
 syntax match pplcType "PRFON"
 highlight link pplcType Type
+
+
+syntax match pplcIdentifier "\v\$\w+"
+highlight link pplcIdentifier Identifier
 
 "syntax match pplcPoint "\v\".{-}\""
 "highlight link pplcType String
 
-"syntax match pplcNumber "\v[0-9]{-}\.?[0-9]{-}"
-"highlight link pplcType Number
-
-echom "Our syntax highlighting goes here as well."
+syntax match pplcComment "\v^[0-9]{5}\tC.*$"
+highlight link pplcComment Comment
 
 let b:current_syntax="pplc"
-
-
-
