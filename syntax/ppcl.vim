@@ -50,23 +50,50 @@ let arithmeticFunctions = ["ATN",
             \ "TAN" ]
 
 for arithmeticFunction in arithmeticFunctions
-    execute 'match pplcFunction "\v' . arithmeticFunction . '\ze\("'
+    execute 'syntax match pplcFunction "\v' . arithmeticFunction . '\ze\("'
 endfor
 
 "syntax match pplcFunction "\vCOS\ze\("
 "syntax match pplcFunction "\vCOS\ze\("
 highlight link pplcFunction Function
 
+" At (@) priority indicators
 syntax match pplcType "\v\@EMER"
 syntax match pplcType "\v\@OPER"
 syntax match pplcType "\v\@SMOKE"
 syntax match pplcType "\v\@NONE"
 syntax match pplcType "\v\@PDL"
-syntax match pplcType "FAILED"
-syntax match pplcType "ALARM"
-syntax match pplcType "\v<OFF>"
-syntax match pplcType "\v<ON>"
-syntax match pplcType "PRFON"
+"
+" Point status indicators
+
+let pointStatusIndicators = [
+            \ "ALARM",
+            \ "ALMACK",
+            \ "AUTO",
+            \ "DEAD",
+            \ "LOW",
+            \ "OK",
+            \ "DAYMOD",
+            \ "FAILED",
+            \ "FAST",
+            \ "HAND",
+            \ "NGTMOD",
+            \ "OFF",
+            \ "ON",
+            \ "PRFON",
+            \ "SLOW"]
+
+for pointStatusIndicator in pointStatusIndicators
+    execute 'syntax match pplcType "\v<' . pointStatusIndicator . '>"'
+endfor
+
+"syntax match pplcType "ALARM"
+"syntax match pplcType "ALMACK"
+"syntax match pplcType "AUTO"
+"syntax match pplcType "FAILED"
+"syntax match pplcType "\v<OFF>"
+"syntax match pplcType "\v<ON>"
+"syntax match pplcType "PRFON"
 highlight link pplcType Type
 
 
