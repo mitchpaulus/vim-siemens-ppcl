@@ -1,0 +1,23 @@
+*vim-siemens-ppcl* Syntax highlighting and documentation for PPCL from
+Siemens
+
+
+
+
+
+*Functions*
+
+
+MAX(result,pt1,...,pt15)            *MAX*
+
+
+TABLE(input,output,x1,y1,...,x7,y7)   *TABLE*
+
+input = (x)
+output = (y)
+x1,y1,...,x7,y7 = pairs of points defining the table, values are
+interpolated in between. Must be put in ascending order by x. 
+
+
+
+
