@@ -2198,10 +2198,6 @@ in the program, the computer assigns the available point name's (OATEMP) value
 to $ARG1. When the computer encounters $ARG2, it assigns the next available
 point as defined in the GOSUB command.
 
-
-2-63
-
-
 In this example, the values would be assigned accordingly: The value of OATEMP
 = $ARG1 The value of RMTEMP = $ARG2 The value of SETPT = $ARG3
 
@@ -2210,29 +2206,8 @@ Notes
 $ARGn points can only be used in subroutines.  Refer to the GOSUB command for
 more information.
 
-2-64
-
-
 
 $LOC1 through $LOC15 Physical
-
-Syntax
-
-Logical
-
-Unitary
-
-CM
-
-APOGEE
-
-!
-
-!
-
-!
-
-!
 
 $LOCn n
 
@@ -6027,28 +6002,25 @@ from 1 through 32,767.
 
 When this command is executed, the next line to be evaluated will be the line
 specified in the command. When the computer encounters a RETURN command in the
-subroutine, the next
-
-
-
-line executed will be the line following the GOSUB statement.  Subroutines are
-particularly useful for programs in which the same calculation is carried out
-several times using different values.  The variable parameters in a subroutine
-are designated by the resident point names $ARG1 through $ARG15. These
-variables can be used by PPCL code in the subroutine in the same way that
-point names and constants are used. To explain the concept of subroutine
-program control, a hypothetical section of program code is provided.  Program
-flow sequence The following example demonstrates how a number of PPCL commands
-are used in subroutines. The main subroutine commands, GOSUB and RETURN are
-required for all subroutines. The $ARG command demonstrates how values are
-passed between subroutines. The GOTO command, which is used to bypass
-subroutines, is also shown in this example.  Refer to Figure 4-1 as you follow
-the program flow sequence. This program uses the variables PT1 and PT2 to
-demonstrate the passing of values between subroutines. The program flow
-through one complete pass is as follows: 1. At line 130, the program branches
-to line 1010.  2. At line 1010, the program assigns a value of 10 to PT1 and
-the value of 20 to PT2. Line 1030 branches back to the line after the GOSUB
-command (at line 130). After the program returns to the main line code, the
+subroutine, the next line executed will be the line following the GOSUB
+statement.  Subroutines are particularly useful for programs in which the same
+calculation is carried out several times using different values.  The variable
+parameters in a subroutine are designated by the resident point names $ARG1
+through $ARG15. These variables can be used by PPCL code in the subroutine in
+the same way that point names and constants are used. To explain the concept
+of subroutine program control, a hypothetical section of program code is
+provided.  Program flow sequence The following example demonstrates how a
+number of PPCL commands are used in subroutines. The main subroutine commands,
+GOSUB and RETURN are required for all subroutines. The $ARG command
+demonstrates how values are passed between subroutines. The GOTO command,
+which is used to bypass subroutines, is also shown in this example.  Refer to
+Figure 4-1 as you follow the program flow sequence. This program uses the
+variables PT1 and PT2 to demonstrate the passing of values between
+subroutines. The program flow through one complete pass is as follows: 1. At
+line 130, the program branches to line 1010.  2. At line 1010, the program
+assigns a value of 10 to PT1 and the value of 20 to PT2. Line 1030 branches
+back to the line after the GOSUB command (at line 130). After the program
+returns to the main line code, the
 
 
 4-31
