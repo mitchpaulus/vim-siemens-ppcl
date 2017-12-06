@@ -6620,21 +6620,26 @@ integer, point name, or local variable.
 
 Not used. Enter zero.
 
-Example 2000 2002 2004 2006 2008 2010 2012 2014 2016 2018 2020 2022
+Example 
+2000 C CONTROL LOOP STATISTICS (LOGICAL
+2002 C FIRMWARE) 
+2004 C DIRECT CONTROL LOOP
+2006 C INPUT = RM100 OUTPUT = HVALVE
+2008 C SETPOINT = HSETPT 
+2010 C PROPORTIONAL GAIN = PGAIN-NO I OR G 
+2012 C GAINS 
+2014 C SAMPLE TIME = 1 SECOND
+2016 C BIAS = 5.5
+2018 C LOW = 3.0 
+2020 C HIGH = 9.0
+2022 LOOP(0,RM100,HVALVE,HSETPT,PGAIN,0,0,1, 5.5,3.0,9.0,0)
 
 Physical syntax
-
-C CONTROL LOOP STATISTICS (LOGICAL C FIRMWARE) C DIRECT CONTROL LOOP C INPUT =
-RM100 OUTPUT = HVALVE C SETPOINT = HSETPT C PROPORTIONAL GAIN = PGAIN-NO I OR
-G C GAINS C SAMPLE TIME = 1 SECOND C BIAS = 5.5 C LOW = 3.0 C HIGH = 9.0
-LOOP(0,RM100,HVALVE,HSETPT,PGAIN,0,0,1, 5.5,3.0,9.0,0)
 
 LOOP(type,pv,cv,sp,pg,ig,dg,st,bias,lo,hi,0) type
 
 Designates the type of control action.  Your choices are as follows: 0 =
 direct acting.  128 = reverse acting.
-
-4-50
 
 pv
 
@@ -6645,10 +6650,10 @@ temperature, flow rate, air velocity, etc.
 cv
 
 Point name of the loop output. It is usually an LAO point that represents
-
-
 an actuator signal such as pressure, current, or voltage. This value can be
-entered a local variable.  sp
+entered a local variable.  
+
+sp
 
 Set point for the loop against which the process variable is compared. This
 parameter can be entered as a point name or a decimal number. The value of the
@@ -6660,13 +6665,12 @@ pg
 Proportional gain determines the part of a PID control action that is directly
 proportional to the error between the set point (sp) and the process variable
 (pv). This parameter must be entered as an integer. Proportional gain is
-calculated using the following formula: Full range of controlled device pg =
+calculated using the following formula: 
+
+pg = Full range of controlled device / Throttling range to change the output
+device from full open to full close. x 1000
 
 ig
-
-Throttling range to change the output device from full open to full close.
-
-x 1000
 
 Integral gain determines the contribution of integral control action to
 the total control action of the loop.  Integral action minimizes offset
@@ -6679,8 +6683,6 @@ Adding integral gain can increase the time required to tune the loop.
 This value must be entered as an integer. Integral gain is calculated by
 using the following formulas: ig = pg \* .02 If using an integral gain.
 ig = 0 If not using an integral gain.
-
-4-52
 
 dg
 
@@ -6727,424 +6729,9 @@ shown in Table 4-2 and Table 4-3 to calculate the low limit.
 
 Not used. Enter zero.
 
-Table 4-2. Loop Limit Calculations.  Output
-
-Range of Values
-
-3-15 psi
-
-Calculation Desired PSI - 2.6 0.05
-
-PO
-
-8 - 248 Desired kPa - 17.9
-
-(21-103 kPa)
-
-0.3445
-
-1-15 psi
-
-Desired psi 0.071
-
-AO-P
-
-14 -211 Desired kPa
-
-(7-103 kPa)
-
-0.4896
-
-4-20 mA
-
-Desired mA - 4 0.015625
-
-AO-E
-
-0 - 1023 Desired Vdc
-
-0-10 Vdc
-
-0.09766
-
-Input to another loop (Used for set point calculation)
-
-(Desired % Output \*
-
-4-54
-
-4,100 - 20,900
-
-16,800) + 4,100
-
-
+Table 4-2. Loop Limit Calculations.
 
 Table 4-3. Loop Limit Values.  PO 3-15 PSI
-
-AO-P 1-15 PSI
-
-AO-E
-
-AO-E
-
-(21-103 kPa)
-
-(7-103 kPa)
-
-4-20 mA
-
-0-10 Vdc
-
-PSI (kPa)
-
-Value
-
-PSI (kPa)
-
-Value
-
-ma
-
--
-
--
-
-1 (7)
-
-14
-
--
-
-2 (14)
-
-28
-
-3 (21)
-
-8
-
-3 (21)
-
-4 (28)
-
-28
-
-4 (28)
-
-5 (34)
-
-48
-
-6 (41) 7 (48)
-
-Value
-
-Vdc
-
-4
-
-0
-
-0
-
-0
-
-0
-
-0
-
-5
-
-63
-
-1
-
-101
-
-10
-
-5780
-
-42
-
-6
-
-127
-
-2
-
-204
-
-20
-
-7460
-
-56
-
-7
-
-191
-
-3
-
-306
-
-30
-
-9140
-
-5 (34)
-
-70
-
-8
-
-255
-
-4
-
-409
-
-40
-
-10820
-
-68
-
-6 (41)
-
-85
-
-9
-
-319
-
-5
-
-511
-
-50
-
-12500
-
-88
-
-7 (48)
-
-99
-
-10
-
-383
-
-6
-
-613
-
-60
-
-14180
-
-8 (55)
-
-108
-
-8( 55)
-
-113
-
-11
-
-447
-
-7
-
-716
-
-70
-
-15860
-
-9 (62)
-
-128
-
-9 (62)
-
-127
-
-12
-
-511
-
-8
-
-818
-
-80
-
-17540
-
-10 (70)
-
-148
-
-10 (70)
-
-141
-
-13
-
-575
-
-9
-
-921
-
-90
-
-19220
-
-155
-
-14
-
-639
-
-10
-
-1023
-
-100
-
-20900
-
-169
-
-15
-
-703
-
--
-
--
-
--
-
--
-
-183
-
-16
-
-767
-
--
-
--
-
--
-
--
-
-197
-
-17
-
-831
-
--
-
--
-
--
-
--
-
-211
-
-18
-
-895
-
--
-
--
-
--
-
--
-
--
-
-19
-
-959
-
--
-
--
-
--
-
--
-
--
-
-20
-
-1023
-
--
-
--
-
--
-
--
-
-168
-
-11 (76)
-
-188 208
-
-12 (83)
-
-228
-
-13 (90)
-
-248
--
-
-14 (96)
-
--
-
-11 (76) 12 (83) 13 (90) 14 (96)
-
-15 (103)
-
-15 (103)
-
--
-
--
-
--
-
--
-
-
-Value
-
-Input to another LOOP
-
-%
-Output
-
-Value
 
 Use
 
