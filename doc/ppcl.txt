@@ -2091,22 +2091,6 @@ delimiter (:)SECNDSn format.
 
 Military time (TIME) Physical
 
-Logical
-
-Unitary
-
-CM
-
-APOGEE
-
-!
-
-!
-
-!
-
-!
-
 Syntax
 
 TIME
@@ -2127,10 +2111,6 @@ The time is updated every second. TIME cannot be used to assign a value to a
 virtual point since its value is not in a standard decimal form.  CRTIME
 should be used for this purpose. TIME can be used in PPCL for comparison in
 the IF/THEN/ELSE statement.
-
-
-2-61
-
 
 Local variables Local variables are storage locations for data.  Local
 variables function like virtual points except that they require less memory,
@@ -2159,21 +2139,6 @@ $ARG1 through $ARG15 Physical
 
 Syntax
 
-Logical
-
-Unitary
-
-CM
-
-APOGEE
-
-!
-
-!
-
-!
-
-!
 
 $ARGn n
 
@@ -3191,10 +3156,6 @@ one pass of the program. If the result is "NO," then it is more efficient not
 to use a subroutine. If the result is "EVEN," then there is no benefit for
 using either method. If you find the result is "YES," then it is more
 efficient to use a subroutine.
-
-
-2-91
-
 
 Using GOTO The GOTO command unconditionally transfers control to another
 location in the program. A GOTO command is commonly used to skip over
@@ -5968,7 +5929,7 @@ AUTO, OFF, ON, SLOW
 4-29
 
 
-GOSUB 
+*GOSUB*
 
 Logical syntax
 
@@ -6020,30 +5981,24 @@ subroutines. The program flow through one complete pass is as follows: 1. At
 line 130, the program branches to line 1010.  2. At line 1010, the program
 assigns a value of 10 to PT1 and the value of 20 to PT2. Line 1030 branches
 back to the line after the GOSUB command (at line 130). After the program
-returns to the main line code, the
-
-
-4-31
-
-
-values of the two points become: PT1 = 10 PT2 = 20 3. The program continues to
-sequentially evaluate program lines until it encounters the GOSUB command at
-line 300. The program branches to line 2010. This command also defines two
-values that are passed (PT1 and PT2).  4. At line 2010, a $ARGn point is
-assigned a value. When the program encounters a $ARGn point, it checks the
-calling GOSUB command for point names. The GOSUB command used to call this
-subroutine contains two point names. When the program encounters the first
-$ARGn variable at line 2010, it takes the first point name defined in the
-GOSUB command (PT1) and stores that value in $ARG1 (10). Line 2010 also adds
-one (1) to the value of $ARG1.  When the program encounters the second $ARGn
-variable at line 2020, it takes the second point name defined in the GOSUB
-command (PT2) and stores that value in $ARG2 (20). Line 2020 also adds one (1)
-to the value of $ARG2.  5. Line 2030 returns control of the program to the
-line after the GOSUB command (at line 300). At line 400, the program executes
-the GOTO command to line 3000 that returns control back to mainline code.
-After one pass of the program, the values of the points after being updated by
-the $ARGn variables, will be as follows: PT1 = 11 PT2 = 21 4-32
-
+returns to the main line code, the values of the two points become: PT1 = 10
+PT2 = 20 3. The program continues to sequentially evaluate program lines until
+it encounters the GOSUB command at line 300. The program branches to line
+2010. This command also defines two values that are passed (PT1 and PT2).  4.
+At line 2010, a $ARGn point is assigned a value. When the program encounters a
+$ARGn point, it checks the calling GOSUB command for point names. The GOSUB
+command used to call this subroutine contains two point names. When the
+program encounters the first $ARGn variable at line 2010, it takes the first
+point name defined in the GOSUB command (PT1) and stores that value in $ARG1
+(10). Line 2010 also adds one (1) to the value of $ARG1.  When the program
+encounters the second $ARGn variable at line 2020, it takes the second point
+name defined in the GOSUB command (PT2) and stores that value in $ARG2 (20).
+Line 2020 also adds one (1) to the value of $ARG2.  5. Line 2030 returns
+control of the program to the line after the GOSUB command (at line 300). At
+line 400, the program executes the GOTO command to line 3000 that returns
+control back to mainline code.  After one pass of the program, the values of
+the points after being updated by the $ARGn variables, will be as follows: PT1
+= 11 PT2 = 21 4-32
 
 
 Example 100 110 112 120 130
@@ -6075,9 +6030,6 @@ mainline code.
 Figure 4-1. Example Program with Two Subroutines.
 
 
-4-33
-
-
 Nested subroutines A multiple level subroutine is a block of program code that
 is called from within another subroutine.  Each call you make within a
 subroutine constitutes a level. You are limited to a total of eight levels.
@@ -6097,29 +6049,21 @@ to line 2030. This command also passes the value of PT1 to the subroutine.  2.
 While executing the first subroutine, the program encounters a call to a
 second subroutine (located at line 2500). Since this call is defined within
 another subroutine, and a variable has been passed (PT1 to $ARG1), you must
-retain the value of $ARG1 by
-
-4-34
-
-
-
-defining $ARG1 in the GOSUB command used to call the second subroutine.  If
-you do not define $ARG1 in the call to the second subroutine, any value you
-introduce in the second subroutine replaces the value in $ARG1. By redefining
-$ARG1, you protect that value by passing it to the second subroutine.  As you
-introduce a new value in the second subroutine (the example defines a point
-called PT2), then that point is defined after the $ARGn variable. Line 2500
-demonstrates a GOSUB command which saves a previously used $ARGn value and
-passes a new point called PT2.  As you work with the variables $ARG1 and PT2
-in the second subroutine, $ARG1 continues to represent the value of PT1, while
-$ARG2 represents the value of PT2.  3. At line 3200, the second subroutine
-calls a third subroutine. In order to preserve the values of $ARG1 and $ARG2,
-you must define them in the GOSUB command (as shown in line 3200) that calls
-the third subroutine. Note how $ARG1 and $ARG2 are placed in a sequential
-order to maintain their previous point values.
-
-
-4-35
+retain the value of $ARG1 by defining $ARG1 in the GOSUB command used to call
+the second subroutine.  If you do not define $ARG1 in the call to the second
+subroutine, any value you introduce in the second subroutine replaces the
+value in $ARG1. By redefining $ARG1, you protect that value by passing it to
+the second subroutine.  As you introduce a new value in the second subroutine
+(the example defines a point called PT2), then that point is defined after the
+$ARGn variable. Line 2500 demonstrates a GOSUB command which saves a
+previously used $ARGn value and passes a new point called PT2.  As you work
+with the variables $ARG1 and PT2 in the second subroutine, $ARG1 continues to
+represent the value of PT1, while $ARG2 represents the value of PT2.  3. At
+line 3200, the second subroutine calls a third subroutine. In order to
+preserve the values of $ARG1 and $ARG2, you must define them in the GOSUB
+command (as shown in line 3200) that calls the third subroutine. Note how
+$ARG1 and $ARG2 are placed in a sequential order to maintain their previous
+point values.
 
 
 1000 1010 1020 1030 1040 1050 1100 1200 1300 1350 1360 1370 1380 1500
@@ -6149,10 +6093,6 @@ C SUBROUTINE #3 C ...  ...  RETURN
 
 Figure 4-2. Multiple Level Subroutines.
 
-4-36
-
-
-
 As the program branches from the second subroutine to the third subroutine,
 $ARG1 and $ARG2 continue to represent PT1 and PT2 respectively. Both $ARGn
 points retain their values because they are passed as parameters in the GOSUB
@@ -6175,10 +6115,7 @@ See also
 RETURN, GOTO
 
 
-4-37
-
-
-GOTO 
+*GOTO*
 
 Syntax
 
@@ -6206,11 +6143,7 @@ commands (LOOP, WAIT, etc.) will not function properly.
 
 See also
 
-4-38
-
 GOSUB
-
-
 
 HLIMIT Physical
 
@@ -6225,14 +6158,6 @@ Unitary
 CM
 
 APOGEE
-
-!
-
-!
-
-!
-
-!
 
 HLIMIT(value,pt1,...,pt15) value
 
@@ -6268,19 +6193,6 @@ HOLIDA Physical
 
 Logical
 
-!  Syntax
-
-Use
-
-Unitary
-
-CM
-
-APOGEE
-
-!
-
-!
 
 HOLIDA(month1,day1,...,month8,day8) month1 through month8
 
@@ -6387,22 +6299,6 @@ Syntax
 
 Use
 
-Logical
-
-Unitary
-
-CM
-
-APOGEE
-
-!
-
-!
-
-!
-
-!
-
 INITTO(value,pt1,...,pt15) value
 
 The new value which replaces the current totalized values for all specified
@@ -6433,25 +6329,6 @@ point), INITTO will reset all totalized states of a digital point to zero.
 
 
 LLIMIT Physical
-
-Syntax
-
-Use
-
-Logical
-
-Unitary
-
-CM
-
-APOGEE
-
-
-!
-
-!
-
-!
 
 LLIMIT(value,pt1,...,pt15) value
 
@@ -6484,16 +6361,6 @@ ALARM, DISALM, ENALM, HLIMIT, NORMAL
 
 
 LOCAL Physical
-
-Logical
-
-Unitary
-
-CM
-
-APOGEE
-
-!  Syntax
 
 LOCAL (pt1... pt16) pt1 through pt16
 
@@ -6816,19 +6683,8 @@ Unitary
 
 9.1
 
-Syntax
-
-APOGEE
-
-!
-
-!
 
 NIGHT(pt1,...,pt16) pt1 through pt16
-
-Use
-
-CM
 
 Names of logical controller points.
 
@@ -6851,18 +6707,6 @@ DAY
 
 
 NORMAL Physical
-
-Logical
-
-Unitary
-
-!  Syntax
-
-APOGEE
-
-!
-
-!
 
 NORMAL(pt1,...,pt16) pt1 through pt16
 
@@ -6927,22 +6771,6 @@ AUTO, FAST, ON, SLOW
 
 
 OIP Physical
-
-Logical
-
-Unitary
-
-!  Syntax
-
-Use
-
-CM
-
-APOGEE
-
-!
-
-!
 
 OIP(trigger, ''seq'') trigger
 
@@ -7057,22 +6885,6 @@ AUTO, FAST, OFF, SLOW
 
 ONPWRT Physical
 
-Logical
-
-!
-
-!
-
-Syntax
-
-CM
-
-APOGEE
-
-!
-
-!
-
 ONPWRT(line#) line#
 
 Use
@@ -7101,16 +6913,6 @@ command is not executed when power is restored.
 
 
 PARAMETER Physical
-
-Logical
-
-Unitary
-
-CM
-
-APOGEE
-
-!  Syntax
 
 Use
 
@@ -7142,20 +6944,6 @@ easy to find.  This command does not require a line number.
 PDL Physical
 
 Logical
-
-!
-
-!
-
-Unitary
-
-CM
-
-APOGEE
-
-!
-
-!
 
 Physical syntax
 
@@ -7269,24 +7057,6 @@ PDLDAT Physical
 
 Logical
 
-!
-
-!
-
-Syntax
-
-4-72
-
-Unitary
-
-CM
-
-APOGEE
-
-!
-
-!
-
 PDLDAT(ptname,minon,minoff,maxoff,kwval) ptname
 
 Point name of the load. In a network system, a load defined by a PDLDAT
@@ -7345,20 +7115,6 @@ PDL, PDLDPG, PDLMTR, PDLSET
 
 
 PDLDPG Physical
-
-Logical
-
-Unitary
-
-!  Syntax
-
-CM
-
-APOGEE
-
-!
-
-!
 
 PDLDPG(area,kwtot1,target1,...,kwtot7,target7) area
 
@@ -7419,20 +7175,6 @@ PDL, PDLDAT, PDLMTR, PDLSET
 PDLMTR Physical
 
 Logical
-
-!  Syntax
-
-4-76
-
-Unitary
-
-CM
-
-APOGEE
-
-!
-
-!
 
 PDLMTR(area,hist,calc,window,plot,warning,mt1, def1,...,mt5,def5) area
 
@@ -7552,22 +7294,6 @@ PDLSET Physical
 
 Logical
 
-!  Syntax
-
-Use
-
-4-80
-
-Unitary
-
-CM
-
-APOGEE
-
-!
-
-!
-
 PDLSET(area,exceed,set1,time1,...,set7,time7) area
 
 Meter area. This is entered as an integer.
@@ -7625,16 +7351,6 @@ RELEAS Physical
 Logical
 
 Unitary
-
-!  Syntax
-
-CM
-
-APOGEE
-
-!
-
-!
 
 RELEAS(pt1,...,pt16) pt1 through pt16
 
@@ -7704,26 +7420,6 @@ GOSUB
 
 SAMPLE Physical
 
-Syntax
-
-Use
-
-Logical
-
-Unitary
-
-CM
-
-APOGEE
-
-!
-
-!
-
-!
-
-!
-
 SAMPLE(sec) line sec
 
 Interval in seconds (1 to 32,767) between evaluations of state. This value is
@@ -7752,24 +7448,6 @@ load.
 
 
 SET Physical
-
-Syntax
-
-Logical
-
-Unitary
-
-CM
-
-APOGEE
-
-!
-
-!
-
-!
-
-!
 
 SET(value,pt1,...,pt15) value
 
@@ -7814,24 +7492,7 @@ Example 2 550
 SET(@EMER,75.0,RMSET1,RMSET2,RMSET3)
 
 
-4-87
-
-
 SLOW Physical
-
-Logical
-
-Unitary
-
-!  Syntax
-
-CM
-
-APOGEE
-
-!
-
-!
 
 SLOW(pt1,...,pt16) pt1 through pt16
 
@@ -7866,20 +7527,6 @@ AUTO, FAST, OFF, ON
 
 
 SSTO Physical
-
-Logical
-
-Unitary
-
-!  Syntax
-
-CM
-
-APOGEE
-
-!
-
-!
 
 SSTO(zone,mode,cst,csp,est,lst,ost,esp,lsp, osp,ast,asp) zone
 
@@ -7987,20 +7634,6 @@ SSTOCO, TOD, TODSET
 
 SSTOCO Physical
 
-Logical
-
-!  Syntax
-
-Unitary
-
-CM
-
-APOGEE
-
-!
-
-!
-
 SSTOCO(zone,season,intemp,outemp,ctemp,
 ccoef1,ccoef2,ccoef3,ccoef4,htemp,hcoef1, hcoef2,hcoef3,hcoef4) For variables
 used in this command, you can use numbers, point names, or local variables.
@@ -8103,27 +7736,10 @@ stop times.  Example 100
 
 See also
 
-4-94
-
 SSTOCO(1,1,ROOM10,OATEMP,75.0, 0.01,0.3, 0.05,0.083,72.0,0.1,0.1,0.2,0.083)
 
 SSTO, TOD, TODMOD
 
-
-
-STATE Physical
-
-Logical
-
-Unitary
-
-CM
-
-APOGEE
-
-!  Syntax
-
-Use
 
 STATE(@pri,statetext,pt1...pt14) @pri
 
@@ -8152,22 +7768,6 @@ Syntax
 
 Use
 
-Logical
-
-Unitary
-
-CM
-
-APOGEE
-
-!
-
-!
-
-!
-
-!
-
 TABLE(input,output,x1,y1,...,x7,y7) input
 
 Point name of the input (x) variable. A local variable or virtual LAI point
@@ -8192,10 +7792,6 @@ larger than x2, etc.). For inputs lower than x1, the output will always equal
 y1. For inputs larger than the last x used, the output will equal the last y
 value entered.
 
-4-96
-
-
-
 Example 500 502 504 506 508 510 512 514 520
 
 C C TABLE COMMAND INFORMATION: C C OATEMP (X) HWSP (Y) C ------------------C 0
@@ -8209,10 +7805,6 @@ Notes
 
 Table statements can be cascaded by overlapping x-y pairs using virtual
 points.
-
-
-4-97
-
 
 TIMAVG Physical
 
