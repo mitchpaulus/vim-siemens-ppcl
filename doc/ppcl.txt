@@ -2079,8 +2079,6 @@ command. The maximum value a SECNDn point can be set to is 9,999.  Example 600
 
 Notes
 
-2-60
-
 IF(SECND1.GT.15) THEN ON(RF) ELSE OFF(RF)
 
 For APOGEE field panels, each program has a unique SECNDSn points. These
@@ -2893,11 +2891,7 @@ This indicator is used to compare the operational status of a point name to
 the OFF status indicator.  The result of the comparison will be true if the
 point is in the OFF state.  Example 200
 
-2-84
-
 IF (FAN.EQ.OFF) THEN RTDAMP = 3.0
-
-
 
 On (ON) Physical
 
@@ -3449,9 +3443,6 @@ run the fan for the last 15 minutes of the hour and for the first five minutes
 of the next hour. The rest of the time the fan is shut off.
 
 
-3-3
-
-
 Applications, which require ON/OFF switching in hourly patterns, work well
 with a duty cycling program.  You should be careful when points you use for DC
 are commanded by other applications such as Time-Of-Day (TOD). If a point is
@@ -3499,12 +3490,7 @@ rate over a long period of time.  Example To help you understand how PDL
 works, refer to the following example.  PDL is monitoring an electrical meter
 that supplies power to three air handling units and some low voltage
 equipment. Two of the air handlers are currently ON while the third air
-handler is about to be turned ON. When all three air handlers and the Siemens
-Building Technologies, Inc.
-
-3-5
-
-
+handler is about to be turned ON. When all three air handlers and the 
 auxiliary equipment are operating at one time, the peak set point of 500 KWH
 will be exceeded.  After the third air handler is started, PDL predicts that
 the load will exceed the set point. To prevent the peak set point from being
@@ -3523,10 +3509,6 @@ target is based upon the percentage of total loads that can be shed by the
 field panel.  Each field panel is responsible for shedding and restoring loads
 defined in it. If communications are lost, the field panel continues to limit
 demand to its last assigned target.
-
-3-6
-
-
 
 TPDL requires the following two PPCL commands defined in the load-handling
 field panel. They must be specified in the following sequence: 
@@ -3552,15 +3534,9 @@ area. In addition to monitoring and predicting demand, the predictor panel is
 also responsible for keeping data for the reports.  Each predictor panel can
 control a total of seven load handling field panels. Each panel receives one
 demand target from the predictor panel. The load handling field panels
-maintain their demand
-
-
-3-7
-
-
-target level by shedding and restoring loads defined under its control.
-Distributed PDL uses the following five commands. These commands must be
-defined in the following order: 
+maintain their demand target level by shedding and restoring loads defined
+under its control.  Distributed PDL uses the following five commands. These
+commands must be defined in the following order: 
 
 • PDLMTR - Monitors consumption meters to determine power usage, maintains
 consumption reports, predicts usage, issues warnings, and restarts meters.
@@ -3584,9 +3560,6 @@ If the predictor panel is also controlling loads, the PDL and PDLDAT
 statements must also be resident in the PPCL program.  For load-handling field
 panels, the PDL and PDLDAT statements must be defined in the PPCL program.
 
-3-8
-
-
 
 Point priority A point priority identifies the level at which a point is
 commanded. When statements are examined, the commanding priority of the
@@ -3605,15 +3578,9 @@ panel.  EMON and EMOFF commands The EMON and EMOFF commands change the status
 (ON or OFF) of a digital point. With that change, you can also specify if you
 want to change the priority of the point.  Note: Before using the EMON and
 EMOFF commands, you should have a good understanding of how they function. For
-complete
-
-
-3-9
-
-
-descriptions of the EMON and EMOFF commands, refer to Chapter 4 – Syntax.
-Logical firmware The logical firmware revision you have determines the
-functionality of your system. Your firmware may not support the concepts
+complete descriptions of the EMON and EMOFF commands, refer to Chapter 4 –
+Syntax.  Logical firmware The logical firmware revision you have determines
+the functionality of your system. Your firmware may not support the concepts
 presented in this section.  Revision 5.0 through 9.1 logical firmware Revision
 5.0 through 9.1 logical firmware contains the following four priority levels:
 
@@ -3635,10 +3602,6 @@ command returns the priority of any point to NONE. If you use this command and
 monitor point priorities with flags, remember to set the flags to the
 appropriate value. If you release points to NONE priority and forget to set
 the priority flags, the program will not work correctly.
-
-3-10
-
-
 
 Revision 9.2 and higher logical firmware Revision 9.2 and higher logical
 firmware support the following five priority levels: 
@@ -3663,9 +3626,6 @@ point priorities without using priority flags.  When referring to priorities,
 the at (@) symbol must be placed before the priority syntax. Refer to Table
 3-1.  Revision 9.2 and higher logical firmware also include the SMOKE
 priority. The SMOKE priority is used for smoke control applications.
-
-
-3-11
 
 
 Table 3-1. System Variables for Priority Monitoring.  Priority
@@ -3709,13 +3669,10 @@ are changed to OPER. You no longer have to use an operator interface command
 (such as OIP) to change the priority of a point.  When you design your
 program, you might have to test the priority of the point. If you are
 performing numerous tasks in the program, using point priority levels is one
-method of preventing those 3-12
-
-
-
-tasks from colliding. Sometimes programs fail because a command, not related
-to a function being performed, changes a point inside of that function.  The
-following example demonstrates how to test for a priority condition: 200
+method of preventing those tasks from colliding. Sometimes programs fail
+because a command, not related to a function being performed, changes a point
+inside of that function.  The following example demonstrates how to test for a
+priority condition: 200
 
 IF (SFAN.EQ.@EMER) THEN ON(@EMER,RFAN)
 
@@ -3735,10 +3692,6 @@ priority.  160
 RELEAS(FAN1,FAN2)
 
 The second option allows you to release points at a specific priority to the
-
-3-13
-
-
 following example, any of the included points in the RELEAS command that have
 a priority of EMER or lower, will be released to the NONE priority: 300
 
@@ -3748,9 +3701,6 @@ Unitary firmware Unitary firmware does not support the use of priority
 indicators and manual priority modifications.  CM and APOGEE firmware CM and
 APOGEE firmware support the same priority indicators as 9.2 and higher logical
 firmware.
-
-3-14
-
 
 
 Point status The operational condition of a point is called the point status.
@@ -3777,9 +3727,6 @@ address performs. You should know how these point types are addressed when
 defining, testing, or commanding points in physical firmware. The following 11
 point types are recognized by every field panel, equipment controller, and
 mass storage device.
-
-
-3-15
 
 
 Table 3-2. The 11 Point Types and Their Organizations.  Point type
@@ -3865,9 +3812,6 @@ DI (PROOF)
 Each point type is assigned a specific number of addresses. The point type
 determines the total number of addresses you assign for that point.  Some
 point types require up to four addresses, while others require only one.
-
-3-16
-
 
 
 Example To explain testing a point for a status, an LFSSL point type is used
@@ -4862,19 +4806,7 @@ FAST, OFF, ON, SLOW
 
 
 
-DAY Physical
-
-Logical
-
-Unitary
-
-!  Syntax
-
-APOGEE
-
-!
-
-!
+*DAY* Physical
 
 DAY(pt1,...,pt16) pt1 through pt16
 
@@ -4898,9 +4830,6 @@ See also
 NIGHT
 
 
-4-5
-
-
 DBSWIT Physical
 
 Syntax
@@ -4911,16 +4840,6 @@ Unitary
 
 CM
 
-APOGEE
-
-!
-
-!
-
-!
-
-!
-
 DBSWIT(type,input,low,high,pt1,...,pt12) type
 
 The type of dead band switch action.  Valid values are 0 and 1.  0 = All
@@ -4929,8 +4848,6 @@ above the high limit, and are commanded OFF when the input point value falls
 below the low limit.  1 = All output points (pt1,...,pt12) are commanded ON
 when the input point value falls below the low limit, and are commanded OFF
 when the input point value rises above the high limit.
-
-4-6
 
 input
 
@@ -4968,20 +4885,11 @@ Example 2 200
 DBSWIT(1,RMTEMP,55,58,SFAN,RFAN)
 
 
-4-7
-
-
 DC Physical
 
 Logical
 
-!
-
-!
-
 Syntax
-
-4-8
 
 Unitary
 
@@ -5926,10 +5834,8 @@ IF (RMTEMP.GT.78.0)THEN FAST(@NONE, FAN1,FAN2)
 AUTO, OFF, ON, SLOW
 
 
-4-29
-
-
 *GOSUB*
+
 
 Logical syntax
 
@@ -5954,8 +5860,6 @@ GOSUB line#
 line#
 
 Use
-
-4-30
 
 Line number. This number indicates which program command line is to be
 executed next (i.e., where the subroutine starts). This line must be a value
@@ -6029,7 +5933,6 @@ mainline code.
 
 Figure 4-1. Example Program with Two Subroutines.
 
-
 Nested subroutines A multiple level subroutine is a block of program code that
 is called from within another subroutine.  Each call you make within a
 subroutine constitutes a level. You are limited to a total of eight levels.
@@ -6064,7 +5967,6 @@ preserve the values of $ARG1 and $ARG2, you must define them in the GOSUB
 command (as shown in line 3200) that calls the third subroutine. Note how
 $ARG1 and $ARG2 are placed in a sequential order to maintain their previous
 point values.
-
 
 1000 1010 1020 1030 1040 1050 1100 1200 1300 1350 1360 1370 1380 1500
 
@@ -6356,8 +6258,6 @@ See also
 
 ALARM, DISALM, ENALM, HLIMIT, NORMAL
 
-
-4-45
 
 
 LOCAL Physical
@@ -8952,8 +8852,6 @@ above the high limit, and are commanded OFF when the input point value falls
 below the low limit.  1 = All output points (pt1,...,pt12) are commanded ON
 when the input point value falls below the low limit, and are commanded OFF
 when the input point value rises above the high limit.
-
-4-6
 
 input:
 
