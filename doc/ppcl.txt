@@ -207,67 +207,67 @@ Table of Contents~
     APOGEE interaction with PPCL TOD 
 
 4 - Syntax
-    ACT 
-    ALARM 
-    AUTO 
-    DAY 
-    DBSWIT 
-    DC 
-    DCR
-    DEACT 
-    DEFINE 
-    DISABL
-    DISALM 
-    DISCOV
-    DPHONE 
-    EMAUTO 
-    EMFAST
-    EMOFF
-    EMON
-    EMSET 
-    EMSLOW 
-    ENABLE 
-    ENALM 
-    ENCOV
-    EPHONE 
-    FAST 
-    GOSUB 
-    GOTO
-    HLIMIT
-    HOLIDA 
-    IF/THEN/ELSE 
-    INITTO 
-    LLIMIT 
-    LOCAL
-    LOOP 
-    MAX
-    MIN
-    NIGHT 
-    NORMAL 
-    OFF 
-    OIP 
-    ON 
-    ONPWRT 
-    PARAMETER 
-    PDL 
-    PDLDAT 
-    PDLDPG
-    PDLMTR
-    PDLSET 
-    RELEAS 
-    RETURN 
-    SAMPLE
-    SET 
-    SLOW
-    SSTO
-    SSTOCO 
-    STATE
-    TABLE 
-    TIMAVG
-    TOD
-    TODMOD 
-    TODSET
-    WAIT 
+    |ACT| 
+    |ALARM| 
+    |AUTO| 
+    |DAY| 
+    |DBSWIT| 
+    |DC| 
+    |DCR|
+    |DEACT| 
+    |DEFINE| 
+    |DISABL|
+    |DISALM| 
+    |DISCOV|
+    |DPHONE| 
+    |EMAUTO| 
+    |EMFAST|
+    |EMOFF|
+    |EMON|
+    |EMSET| 
+    |EMSLOW| 
+    |ENABLE| 
+    |ENALM| 
+    |ENCOV|
+    |EPHONE| 
+    |FAST| 
+    |GOSUB| 
+    |GOTO|
+    |HLIMIT|
+    |HOLIDA| 
+    |IF/THEN/ELSE| 
+    |INITTO| 
+    |LLIMIT| 
+    |LOCAL|
+    |LOOP| 
+    |MAX|
+    |MIN|
+    |NIGHT| 
+    |NORMAL| 
+    |OFF| 
+    |OIP| 
+    |ON| 
+    |ONPWRT| 
+    |PARAMETER| 
+    |PDL| 
+    |PDLDAT| 
+    |PDLDPG|
+    |PDLMTR|
+    |PDLSET| 
+    |RELEAS| 
+    |RETURN| 
+    |SAMPLE|
+    |SET| 
+    |SLOW|
+    |SSTO|
+    |SSTOCO| 
+    |STATE|
+    |TABLE| 
+    |TIMAVG|
+    |TOD|
+    |TODMOD| 
+    |TODSET|
+    |WAIT| 
 
 5 - Glossary
     Glossary of terms 
@@ -401,13 +401,6 @@ CM
 
 APOGEE
 
-!
-
-!
-
-!
-
-!
 
 DISALM(pt1,...,pt16) pt1 through pt16
 
@@ -538,8 +531,6 @@ Chapter 2 contains information related to the design, coding, and
 implementation of a program.  In this section, you will learn about the
 following concepts:
 
-2-2
-
 • Using the rules and guidelines of the PPCL language
 • Using resident points and storage locations
 • Understanding the relationships between priority and point status
@@ -603,12 +594,9 @@ AHU01.SFAN) is a long point name and requires quotes.
 • When entering program code through the APOGEE field panel MMI port, the
 maximum number of characters per line is 66 (including line number). If you
 need to enter more characters, enter an ampersand (&) at the end of the line,
-and continue entering characters
-
-
-
-on the next line. The maximum number of characters allowed on total of three
-lines of code (including the ampersands and line numbers) is 198 characters.
+and continue entering characters on the next line. The maximum number of
+characters allowed on total of three lines of code (including the ampersands
+and line numbers) is 198 characters.
 
 • Each field panel running PPCL contains one or more separate programs.
 
@@ -663,15 +651,7 @@ program that contains the same number of lines, yet one device may execute the
 code several times faster than another device.  The factor that has the
 greatest influence on program code evaluation speed, is the number of FLN
 devices connected to the field panel running PPCL. The line evaluation rate
-
-
-
-2-7
-
-
-is also affected by the number of program lines defined in a device.  •
-
-2-8
+is also affected by the number of program lines defined in a device. 
 
 When using multiple programs in an APOGEE field panel, try to create programs
 that are roughly the same number of lines per program. APOGEE field panels
@@ -682,8 +662,9 @@ with 50 lines. The shorter program will be executed five times before the
 longer program is executed once.
 
 
+~Relational operators
 
-Relational operators Relational operators compare two values. The result of a
+Relational operators compare two values. The result of a
 comparison, called a condition, determines an action. The action depends upon
 which condition is true. For example, one morning you wake up. As you are
 eating breakfast, you happen to look at the newspaper and discover that it is
@@ -713,9 +694,6 @@ following relational operators:
 
 Each relational operator is described in more detail on the following pages.
 
-2-9
-
-
 Equal to (.EQ.) 
 
 Syntax
@@ -732,8 +710,6 @@ second value (value2). The comparison between the two values is true if value1
 is equal to value2.  Example 500 510 520 530
 
 Notes
-
-2-10
 
 C IF THE ROOM TEMP IS EQUAL TO 80, C THEN SET THE SET POINT TO 70.  C IF
 (RMTEMP.EQ.80.0) THEN RMSET = 70.0
@@ -757,13 +733,6 @@ CM
 
 APOGEE
 
-!
-
-!
-
-!
-
-!
 
 if (value1.GE.value2) then...  value1, value2
 
@@ -781,9 +750,6 @@ C IF THE ROOM TEMP IS GREATER THAN C OR EQUAL TO 80, THEN SET THE SET C POINT
 TO 70 C IF (RMTEMP.GE.80.0) THEN RMSET = 70.0
 
 
-2-11
-
-
 Greater than (.GT.) 
 
 Syntax
@@ -799,7 +765,6 @@ Compares two values to determine if the first value (value1) is greater than
 the second value (value2). The comparison between the two values is true if
 value1 is greater than value2.  Example 250 260 270 280
 
-2-12
 
 C IF THE ROOM TEMP IS GREATER THAN C 80, THEN SET THE SET POINT TO 70 C IF
 (RMTEMP.GT.80.0) THEN RMSET = 70.0
@@ -825,8 +790,6 @@ C IF THE ROOM TEMP IS LESS THAN OR C EQUAL TO 80, THEN SET THE SET POINT C TO
 70 C IF (RMTEMP.LE.80.0) THEN RMSET = 70.0
 
 
-2-13
-
 
 Less than (.LT.) Physical
 
@@ -840,13 +803,6 @@ CM
 
 APOGEE
 
-!
-
-!
-
-!
-
-!
 
 if (value1.LT.value2) then...  value1, value2
 
@@ -859,7 +815,6 @@ Compares two values to determine if the first value (value1) is less than the
 second value (value2). The comparison between the two values is true if value1
 is less than value2.  Example 900 910 920 930
 
-2-14
 
 C IF THE ROOM TEMP IS LESS THAN 80, C THEN SET THE SET POINT TO 70.  C IF
 (RMTEMP.LT.80.0) THEN RMSET = 70.0
@@ -885,7 +840,8 @@ C IF THE ROOM TEMP IS NOT EQUAL TO C 80, THEN SET THE SET POINT TO 70.  C IF
 (RMTEMP.NE.80.0) THEN RMSET = 70.0
 
 
-Logical operators While relational operators compare two values and produce a
+Logical operators
+While relational operators compare two values and produce a
 condition, logical operators compare two conditions. The result of a
 comparison between the two conditions is called a condition. If the result of
 the conditions is true, then a specific action is taken. If the result is
@@ -905,9 +861,6 @@ precedence level associated with it. Precedence levels represent the order at
 which expressions and functions are evaluated. For a complete discussion about
 precedence levels refer to the Order of precedence section.
 
-2-16
-
-
 
 PPCL supports the following logical operators: 
 
@@ -920,9 +873,6 @@ PPCL supports the following logical operators:
 • Exclusive Or (.XOR.)
 
 Each logical operator is described in more detail on the following pages.
-
-
-2-17
 
 
 And (.AND.) 
@@ -960,7 +910,6 @@ Example 200
 
 Notes
 
-2-18
 
 IF (TIME.LT.19:00.AND.TIME.GT.5:00) THEN ON(LIGHTS)
 
@@ -1001,8 +950,6 @@ Result is False
 Result is False
 
 
-2-19
-
 
 Revision 9.1 and higher logical, physical, CM and APOGEE firmware: Table 2-3.
 Truth Table for .NAND. Logical Operator.  Conditional Values
@@ -1026,8 +973,6 @@ Result is False
 Example 200
 
 Notes
-
-2-20
 
 IF (TIME.LE.19:00.NAND.OCC.EQ.OFF) THEN OFF(LIGHTS)
 
@@ -1112,7 +1057,6 @@ Example 200
 
 Notes
 
-2-22
 
 IF (PMP1.EQ.ON.XOR.PMP2.EQ.ON) THEN NORMAL(PMPALM)
 
@@ -1186,8 +1130,6 @@ The code in this example would fail due to the “C” being used like a variabl
 when instead the field panel interprets the line as a comment.
 
 
-2-25
-
 
 Division 
 ==============================================================================
@@ -1210,10 +1152,7 @@ PPCL, value2 represents the denominator.
 Divides two values (value1 by value2) and stores the quotient in a defined
 location (pt1).  Example 890
 
-2-26
-
 AVERAG = TOTAL / 5.0
-
 
 
 Multiplication 
@@ -1364,6 +1303,7 @@ NATANT = EXP(VALUE1)
 
 
 Natural Log (LOG) 
+==============================================================================
 
 Syntax
 
@@ -1510,8 +1450,6 @@ C IF (ALMPRI(RMTEMP).EQ.1) THEN ON (OPBELL)
 Example 2 330 332 334 336 338 340
 
 
-2-40
-
 C C THIS LINE ASSIGNS THE ALARM C PRIORITY LEVEL OF RMTEMP TO THE C POINT
 CALLED TMPPRI.  C TMPPRI = ALMPRI(RMTEMP)
 
@@ -1604,8 +1542,6 @@ Command
 Syntax
 
 Level 1 (Highest) 2
-
-2-44
 
 Parentheses
 
@@ -1775,9 +1711,6 @@ again when an enhanced alarm point changes from one alarm level to another.
 See also
 
 ALMCNT, ENALM, DISALM
-
-
-2-49
 
 
 Battery condition ($BATT) Physical
@@ -1973,24 +1906,17 @@ See also
 Communications Link
 
 
-2-57
-
 
 PDL monitor ($PDL) Physical
 
 Logical
 
-!
 
 Unitary
 
 CM
 
 APOGEE
-
-!
-
-!
 
 Syntax
 
@@ -2014,14 +1940,6 @@ CM
 
 APOGEE
 
-!
-
-!
-
-!
-
-!
-
 Syntax
 
 SECNDS
@@ -2041,10 +1959,6 @@ For APOGEE field panels, each program has a unique SECNDS point. This point
 can also be viewed in the interface using the program name, system delimiter
 (:)SECNDS format.
 
-
-2-59
-
-
 Seconds counter (SECND1 through SECND7) Physical
 
 Syntax
@@ -2056,14 +1970,6 @@ Unitary
 CM
 
 APOGEE
-
-!
-
-!
-
-!
-
-!
 
 SECNDn The number that describes which SECNDn point is referenced. Valid
 values are 1 through 7.
@@ -2128,9 +2034,6 @@ For APOGEE field panels, each program has a unique $ARG and $LOC variables.
 $LOC points can also be viewed and commanded through the interface using the
 program name, system delimiter (:), local variable name format.  Each local
 variable is described in more detail on the following pages.
-
-2-62
-
 
 
 $ARG1 through $ARG15 Physical
@@ -2197,10 +2100,6 @@ $LOC7 = (50/VALUE1+10.0) \* 2.0
 Local points in APOGEE field panels can store values greater than 32,767 (up
 to 10,000,000).
 
-
-2-65
-
-
 At (@) priority indicators At (@) priority indicators are used to monitor the
 priority status on points defined in a device. The @priority indicators can be
 implemented to test if a point is at a specific priority. An @priority
@@ -2226,9 +2125,6 @@ number of points you can define in that statement then decreases to 15. When
 the @priority is not used, the default priority is EMER.  Each @priority
 indicator is described in more detail on the following pages.
 
-2-66
-
-
 
 Emergency (@EMER) Physical
 
@@ -2241,10 +2137,6 @@ Unitary
 CM
 
 APOGEE
-
-!
-
-!
 
 Syntax
 
@@ -2276,10 +2168,6 @@ For logical firmware 9.2 and higher, CM and APOGEE firmware, if the @priority
 indicator is not specified, the field panel will release points from PDL or
 EMER priority to NONE.
 
-
-2-67
-
-
 PPCL (@NONE) Physical
 
 Logical 9.2
@@ -2289,10 +2177,6 @@ Unitary
 CM
 
 APOGEE
-
-!
-
-!
 
 Syntax
 
@@ -2304,11 +2188,7 @@ This command identifies the PPCL priority level indicator. The @NONE command
 can be used to test if a point currently is at PPCL priority. The IF/THEN/ELSE
 statement would look like the following: 300
 
-2-68
-
 IF (SFAN.EQ.@NONE) THEN OFF(HORN)
-
-
 
 Operator (@OPER) Physical
 
@@ -2321,10 +2201,6 @@ Unitary
 CM
 
 APOGEE
-
-!
-
-!
 
 Syntax
 
@@ -2354,10 +2230,6 @@ RELEAS(@OPER,SFAN)
 For logical firmware 9.2 and higher, CM and APOGEE firmware, the @priority
 indicator must be specified to release points in any priority to NONE.
 
-
-2-69
-
-
 Peak Demand Limiting (@PDL) Physical
 
 Logical
@@ -2369,10 +2241,6 @@ Unitary
 CM
 
 APOGEE
-
-!
-
-!
 
 Syntax
 
@@ -2400,10 +2268,6 @@ necessary.  For logical firmware 9.2 and higher, CM and APOGEE firmware, if
 the @priority indicator is not specified, the field panel will release points
 from PDL to NONE.
 
-2-70
-
-
-
 Smoke (@SMOKE) Physical
 
 Logical
@@ -2416,9 +2280,6 @@ CM
 
 APOGEE
 
-!
-
-!
 
 Syntax
 
@@ -2444,10 +2305,6 @@ Notes
 For logical firmware 9.2 and higher, CM and APOGEE firmware, the @priority
 indicator must be specified to release points from SMOKE, EMER, PDL to NONE
 priority.
-
-
-2-71
-
 
 Point status indicators Point status indicators are used to monitor the
 current status of points defined in the device. Point status indicators can be
@@ -2489,10 +2346,6 @@ following point status indicators:
 Each point status indicator is described in more detail on the following
 pages.
 
-2-72
-
-
-
 Alarm (ALARM) Physical
 
 Syntax
@@ -2505,14 +2358,6 @@ CM
 
 APOGEE
 
-!
-
-!
-
-!
-
-!
-
 if (pt1.eq.ALARM) then...  pt1
 
 Use
@@ -2524,9 +2369,6 @@ point type.
 This status indicator determines if the status of point (pt1) is in the ALARM
 state. This comparison will be true if the point is in the ALARM state.
 Example 200 IF (TEMP02.EQ.ALARM) THEN ON(FAN)
-
-
-2-73
 
 
 Alarm acknowledge (ALMACK) Physical
@@ -2565,10 +2407,6 @@ Unitary
 
 APOGEE
 
-!
-
-!
-
 if (pt1.eq.AUTO) then...  pt1
 
 Use
@@ -2593,10 +2431,6 @@ Unitary
 CM
 
 APOGEE
-
-!
-
-!
 
 Syntax
 
@@ -2646,9 +2480,6 @@ IF ($BATT.EQ.50) THEN ALARM(P26BAT)
 DEAD, OK
 
 
-2-77
-
-
 Battery status - charged (OK) 
 Syntax
 
@@ -2667,8 +2498,6 @@ An alternate method to test the battery strength is to use the numeric value
 
 See also
 
-2-78
-
 IF ($BATT.EQ.100) THEN ALARM(P26BAT)
 
 DEAD, LOW
@@ -2686,10 +2515,6 @@ Unitary
 Syntax
 
 APOGEE
-
-!
-
-!
 
 if (pt1.eq.DAYMOD) then...  pt1
 
@@ -2713,9 +2538,6 @@ This point is only valid for equipment controllers and is only valid when used
 with the LCTLR or LTCU point types.
 
 
-2-79
-
-
 Failed (FAILED) Physical
 
 Logical
@@ -2726,9 +2548,6 @@ Unitary
 
 APOGEE
 
-!
-
-!
 
 if (pt1.eq.FAILED) then...  pt1
 
@@ -2744,11 +2563,7 @@ This status indicator is used to compare the operational status of a point to
 the FAILED status indicator. This comparison will be true if the point is in
 the FAILED state.  Example 200
 
-2-80
-
 IF (AHU2.EQ.FAILED) THEN ON(HORN)
-
-
 
 Fast (FAST) Physical
 
@@ -2759,10 +2574,6 @@ Unitary
 !  Syntax
 
 APOGEE
-
-!
-
-!
 
 if (pt1.eq.FAST) then...  pt1
 
@@ -2779,10 +2590,6 @@ FAST state.  Example 200
 
 IF (FAN.EQ.FAST) THEN DAMPER = 8.0
 
-
-2-81
-
-
 Manual override (HAND) Physical
 
 Logical
@@ -2793,9 +2600,6 @@ Unitary
 
 APOGEE
 
-!
-
-!
 
 if (pt1.eq.HAND) then...  pt1
 
@@ -2812,8 +2616,6 @@ the HAND status indicator. This comparison will be true if the point PTM is
 currently being controlled through the use of a PTM manual override switch.
 Example 200
 
-2-82
-
 IF (FAN.EQ.HAND) THEN OADAMP = 8.0
 
 
@@ -2829,10 +2631,6 @@ Unitary
 Syntax
 
 APOGEE
-
-!
-
-!
 
 if (pt1.eq.NGTMOD) then...  pt1
 
@@ -2855,10 +2653,6 @@ IF (CNTRL1.EQ.NGTMOD) THEN NGTSP = 78.0
 This point is only valid for equipment controllers and is only valid when used
 with the LCTLR or LTCU point types.
 
-
-2-83
-
-
 Off (OFF) Physical
 
 Syntax
@@ -2870,14 +2664,6 @@ Unitary
 CM
 
 APOGEE
-
-!
-
-!
-
-!
-
-!
 
 if (pt1.eq.OFF) then...  pt1
 
@@ -2905,14 +2691,6 @@ CM
 
 APOGEE
 
-!
-
-!
-
-!
-
-!
-
 if (pt1.eq.ON) then...  pt1
 
 Use
@@ -2927,10 +2705,6 @@ point is in an ON state.  Example 200
 
 IF (FAN.EQ.ON) THEN RTDAMP = 3.0
 
-
-2-85
-
-
 Proof on (PRFON) Physical
 
 Syntax
@@ -2943,14 +2717,6 @@ CM
 
 APOGEE
 
-!
-
-!
-
-!
-
-!
-
 if (pt1.eq.PRFON) then...  pt1
 
 Use
@@ -2962,11 +2728,8 @@ This indicator is used to compare the operational status of a point to the
 PRFON status indicator.  This comparison will be true if the proof for the
 point is in the ON state.  Example 200
 
-2-86
 
 IF (FAN.EQ.PRFON) THEN OADAMP = 8.5
-
-
 
 Slow (SLOW) Physical
 
@@ -2977,10 +2740,6 @@ Unitary
 !  Syntax
 
 APOGEE
-
-!
-
-!
 
 if (pt1.eq.SLOW) then...  pt1
 
@@ -2997,10 +2756,6 @@ SLOW state.  Example 200
 
 IF (FAN.EQ.SLOW) THEN DAMPER = 13.0
 
-
-2-87
-
-
 Structured programming Before writing a program, you must determine the order
 in which PPCL statements are executed.  The method you use to organize your
 program determines its ease of maintenance. During the life of the program,
@@ -3016,8 +2771,6 @@ If you organize the logic of the program, then the program becomes easier to
 modify and maintain.  The following situations can make a program difficult to
 maintain:
 
-2-88
-
 • Statements are not arranged in a logical order.
 
 • Sections of common program code are repeated throughout the program instead of
@@ -3030,8 +2783,6 @@ using a subroutine.
 • With some firmware (such as APOGEE) the control strategy is duplicated within
 a single program using new line numbers, rather than creating a separate
 program in the same field panel.
-
-
 
 It also helps to design your program code according to a structured
 programming style. This style produces an organized program. Errors are easier
@@ -3049,7 +2800,8 @@ reduces the need for duplicate code lines.
 • If possible, each section of program code is described and documented using
 comment lines.
 
-Modular programming Modular programming is a style of programming which
+Modular programming~
+Modular programming is a style of programming which
 logically organizes code into common functions. This style of programming can
 be applied to a single program, or to multiple programs running on the network
 or in one field panel. The objectives of modular programming are as follows: 
@@ -3081,10 +2833,6 @@ should also determine if the subroutine will be accessed enough times through
 one pass of the program. If you implement a subroutine that has only one line
 of code, and it is only called one time in the program, you would create more
 program code than by just using straight-line program code.
-
-2-90
-
-
 
 Note the use of a subroutine that only contains one line of program code. A
 single line of program code placed in a subroutine will never be executed
@@ -3168,10 +2916,6 @@ statements should not be used in subroutines, and therefore require a program.
 The DEFINE statement can be used to replace major portions of point names.
 Refer to the following example.
 
-2-92
-
-
-
 Five Air Handling Units (AHUs) use the same control strategy. Two possible
 options for PPCL programming are as follows: Option 1 - Use one PPCL program
 that contains five duplicate blocks of program code.  Option 2 - Five programs
@@ -3193,9 +2937,6 @@ also testing values outside the range of response.  If an input is defined to
 accept values from 50°F to 70°F, use an input value of 40°F to find out how
 the system responds. If the program turns a point ON, find out what happens
 
-2-93
-
-
 Test how your program will react if a sensor or fan motor would fail.  When
 you use values that are not expected to be encountered by the program, you
 discover how the program processes errors. The precautions you take in
@@ -3215,10 +2956,6 @@ comment line is used. Comment lines allow you to enter text information
 describing the functionality of a specific section of code.  Comment lines are
 especially helpful for describing subroutines and areas of program code that
 are difficult to understand.
-
-2-94
-
-
 
 The device and software you use to program PPCL determines how you enter
 comment lines.  Comment lines require you to enter a line number followed by
@@ -3245,9 +2982,6 @@ of operation. Decision tables are useful because they provide a visual
 representation of how the specific equipment interacts with other equipment
 during each mode of operation.  Table 2-8 provides an example of a decision
 table that defines six pieces of equipment and four modes of operation.
-
-2-95
-
 
 Table 2-8. Example of a Decision Table.  Equipment type
 
@@ -3330,10 +3064,6 @@ quickly organize their ideas before writing the code. After the code is
 written, pseudocode can be used as a reference to help others learn about the
 functionality of the program.
 
-2-96
-
-
-
 Steps to solving a programming problem When you first start programming in
 PPCL, you should have some type of problem solving method. The following
 problem solving method begins with the sequence of operation, and continues
@@ -3355,10 +3085,6 @@ organized fashion.  Step 3 - Identify specific controls. Identify procedures
 and controls that you will write program code to solve. You should look for
 key phrases such as: "This system must control..." "Will perform..."
 "Cycle..." "Calculate..."
-
-
-2-97
-
 
 All of these phrases identify some type of control for which you will write
 PPCL code. Classify each control according to the modes you have defined.
@@ -3384,10 +3110,6 @@ and test the program code.  Depending on the experience you have writing PPCL
 programs, you may not write an error-free program every time. Getting programs
 to work properly takes time and patience.
 
-2-98
-
-
-
 Before you actually use a PPCL program, run the program and verify that it
 works. The more testing you do to simulate conditions that the program will
 encounter, the better your chances of detecting errors. Through testing, you
@@ -3395,20 +3117,11 @@ may even discover an easier method for accomplishing a particular control
 strategy.
 
 
-2-99
+3. Control Option Comparisons~
+=======================================================================
 
-
-2-100
-
-
-3
-Control Option Comparisons
-
-
-3-1
-
-
-Introduction The APOGEE system has many different types of control
+Introduction~
+The APOGEE system has many different types of control
 applications. To make these applications work properly, you must apply the
 correct program to the function you want to control. This chapter discusses
 the concepts behind some of the major applications. This chapter also helps
@@ -3416,10 +3129,6 @@ you understand the procedures the system uses in performing everyday
 operations.  This chapter also discusses the organization of PPCL statements
 and how they relate to each other. For a complete description of PPCL commands
 identified in this chapter, refer to Chapter 4 – Syntax.
-
-3-2
-
-
 
 Duty Cycling (DC) To understand how the Duty Cycling (DC) function works,
 imagine you have a home furnace to control. The duty cycling function works
@@ -3441,7 +3150,6 @@ school, classes start on the hour and last for 50 minutes.  There is a
 class.  Since the hall that HFAN serves has good ventilation, you decide to
 run the fan for the last 15 minutes of the hour and for the first five minutes
 of the next hour. The rest of the time the fan is shut off.
-
 
 Applications, which require ON/OFF switching in hourly patterns, work well
 with a duty cycling program.  You should be careful when points you use for DC
@@ -3467,10 +3175,6 @@ control areas where the load changes or when deviations in space temperature
 or humidity are undesirable. Such areas include a classroom, meeting room,
 lobby area, or areas located adjacent to an exterior wall of the building.
 
-3-4
-
-
-
 Peak Demand Limiting (PDL) To better understand how the Peak Demand Limiting
 (PDL) function works, imagine you have to control a home furnace. The PDL
 function is similar to the high limit control on the furnace. If the
@@ -3490,7 +3194,7 @@ rate over a long period of time.  Example To help you understand how PDL
 works, refer to the following example.  PDL is monitoring an electrical meter
 that supplies power to three air handling units and some low voltage
 equipment. Two of the air handlers are currently ON while the third air
-handler is about to be turned ON. When all three air handlers and the 
+handler is about to be turned ON. When all three air handlers and the
 auxiliary equipment are operating at one time, the peak set point of 500 KWH
 will be exceeded.  After the third air handler is started, PDL predicts that
 the load will exceed the set point. To prevent the peak set point from being
@@ -3560,27 +3264,27 @@ If the predictor panel is also controlling loads, the PDL and PDLDAT
 statements must also be resident in the PPCL program.  For load-handling field
 panels, the PDL and PDLDAT statements must be defined in the PPCL program.
 
-
-Point priority A point priority identifies the level at which a point is
-commanded. When statements are examined, the commanding priority of the
-functions is compared to the priorities of the points. A point can only be
-commanded by a program line whose priority is equal to or higher than the
-current priority of the point.  Physical firmware Physical firmware PPCL has
-only two priorities: NONE and EMER. All points are considered to be at NONE
-priority unless their priorities are changed with the EMON/EMOFF commands. The
-EMON command turns the point ON and can change its priority to EMER. The EMOFF
-command turns the point OFF and can change its priority to NONE.  This section
-discusses using the NONE and EMER priorities. It does not address Insight for
-minicomputers priorities such as the PDL priority.  Refer to the Insight for
-Minicomputers User's Documentation Set (125-1910) for more information about
-priorities and how they interact with PPCL programs running in the field
-panel.  EMON and EMOFF commands The EMON and EMOFF commands change the status
-(ON or OFF) of a digital point. With that change, you can also specify if you
-want to change the priority of the point.  Note: Before using the EMON and
-EMOFF commands, you should have a good understanding of how they function. For
-complete descriptions of the EMON and EMOFF commands, refer to Chapter 4 –
-Syntax.  Logical firmware The logical firmware revision you have determines
-the functionality of your system. Your firmware may not support the concepts
+Point priority~
+A point priority identifies the level at which a point is commanded. When
+statements are examined, the commanding priority of the functions is compared
+to the priorities of the points. A point can only be commanded by a program
+line whose priority is equal to or higher than the current priority of the
+point.  Physical firmware Physical firmware PPCL has only two priorities: NONE
+and EMER. All points are considered to be at NONE priority unless their
+priorities are changed with the EMON/EMOFF commands. The EMON command turns
+the point ON and can change its priority to EMER. The EMOFF command turns the
+point OFF and can change its priority to NONE.  This section discusses using
+the NONE and EMER priorities. It does not address Insight for minicomputers
+priorities such as the PDL priority.  Refer to the Insight for Minicomputers
+User's Documentation Set (125-1910) for more information about priorities and
+how they interact with PPCL programs running in the field panel.  EMON and
+EMOFF commands The EMON and EMOFF commands change the status (ON or OFF) of a
+digital point. With that change, you can also specify if you want to change
+the priority of the point.  Note: Before using the EMON and EMOFF commands,
+you should have a good understanding of how they function. For complete
+descriptions of the EMON and EMOFF commands, refer to Chapter 4 – Syntax.
+Logical firmware The logical firmware revision you have determines the
+functionality of your system. Your firmware may not support the concepts
 presented in this section.  Revision 5.0 through 9.1 logical firmware Revision
 5.0 through 9.1 logical firmware contains the following four priority levels:
 
@@ -3843,9 +3547,6 @@ command FANDO1. If you decide to set the fan to SLOW, you would command
 FANDO2.
 
 
-3-17
-
-
 CAUTION: When using this method of point control, it is very important that
 only one digital output point be ON at any time. Commanding multiple digital
 output points ON will cause serious damage to that piece of HVAC equipment.
@@ -3885,9 +3586,6 @@ To determine if the fan is ON, compare the values of FANDO1 and FANDO2 to one.
 If either point is equal to one, the fan is ON. A test for that condition
 might look like the following: 600
 
-3-18
-
-IF(FANDO1.EQ.1.0.OR.FANDO2.EQ.1.0) THEN...
 
 
 
@@ -3914,9 +3612,6 @@ considered ON. When the digital input point is equal to zero, the proof point
 is OFF.
 
 
-3-19
-
-
 Bundled point testing Bundled point testing refers to the comparison of
 bundled point values to an ON or OFF status. For this example, the LFSSL point
 will be defined to control a fan (the point name is FAN). The point requires
@@ -3941,8 +3636,6 @@ addresses to OFF. If two addresses that are controlling one piece of equipment
 are commanded ON at the same time, damage will occur to that HVAC equipment.
 For example, if you wanted to set the fan to FAST, you could enter the
 following program code to command the fan: 550
-
-3-20
 
 ON(FAN#1)
 
@@ -3990,7 +3683,6 @@ three addresses, you must use the pound sign (#) and a number to distinguish
 which address the computer should command.
 
 
-3-21
 
 
 To determine if the fan is ON, compare the values of FAN to 1. A test for an
@@ -4046,9 +3738,6 @@ point's last known value is still used in the PPCL statement. For example:
 MIN(RMMIN,RM1TMP,RM2TMP,RM3TMP)
 
 
-3-23
-
-
 If RM1TMP is a physical point that fails when it has the lowest value of the
 three RMTMP points, the MIN statement will set RMMIN to the last known value
 for RM1TMP.  Determining point status using logical firmware Logical firmware
@@ -4098,9 +3787,6 @@ is ON. If the point is not ON, then an alternate action will occur.  Revision
 firmware uses the same syntactical conventions for status indicators as
 Revision 5.0 through 9.1 logical firmware. For more information, refer to the
 Revision 5.0 through 9.1 logical firmware section.
-
-
-3-25
 
 
 CM 1.x and revision 12.0 and higher logical firmware CM version 1.0 and
@@ -4187,9 +3873,6 @@ to Revision 9.2 and higher logical firmware under the Determining point status
 using logical firmware.
 
 
-3-29
-
-
 Start/Stop Time Optimization (SSTO) The Start/Stop Time Optimization (SSTO)
 feature starts and stops equipment at variable times based on calculations
 that determine the optimal use of the system. Start and stop times of
@@ -4209,9 +3892,6 @@ you define for SSTO are commanded by another application such as Duty Cycling
 (DC). If you have a point being controlled by SSTO and DC during the same time
 period, one program could interfere with the operations of the other. Be
 careful when designing your programs so functions do not conflict.
-
-3-30
-
 
 
 You should use the SSTO program in areas such as extreme (outside) zones,
@@ -4236,9 +3916,6 @@ each program within the field panel to fine-tune the calculated start time
 (cst) and the calculated stop times (csp). Each day, the
 
 
-3-31
-
-
 SSTO statement increments or decrements these values by the heating auto-tune
 coefficient (hceof4) and the cooling auto-tune coefficient (ccoef4), defined
 in the SSTOCO statement. This time will be added to or subtracted from the
@@ -4257,9 +3934,6 @@ coefficients from the PPCL manual should not be used without first calculating
 what the number should be.  Formulas for SSTO The formulas on the following
 pages are used for calculating the optimal start and stop times during the
 heating and cooling seasons.
-
-3-32
-
 
 
 For optimum start time in the cooling season If indoor temperature is less
@@ -4294,9 +3968,6 @@ AB
 adjust begin time from SSTO command.
 
 
-3-33
-
-
 For optimum stop time in the cooling season If indoor temperature is less than
 the desired temperature, then the optimum stop time is: OE + ((10 \* CR \* d)/f)
 + AE Where: OB
@@ -4322,9 +3993,6 @@ AE
 If indoor temperature is greater than or equal to the desired temperature, the
 optimum stop time is LE: Where: LE
 
-3-34
-
-= latest end time from SSTO command.
 
 
 
@@ -4360,9 +4028,6 @@ then the optimum stop time is LB: Where: LB
 = latest begin time from SSTO command.
 
 
-3-35
-
-
 For optimum stop time in the heating season If indoor temperature is less than
 the desired temperature, then the optimum stop time is LE: Where: LE
 
@@ -4371,9 +4036,6 @@ the desired temperature, then the optimum stop time is LE: Where: LE
 If indoor temperature is greater than or equal to the desired temperature,
 then the optimum stop time is: OE + ((25 \* HR \* d) / f) + AE Where:
 
-3-36
-
-OE
 
 = occupancy end time from SSTO command.
 
@@ -4414,9 +4076,6 @@ CA
 = cooling auto-step coefficient (ccoef4) from SSTOCO command.
 
 
-3-37
-
-
 For cooling mode at occupancy end If indoor temperature is greater than the
 desired temperature plus one degree, then: AE = AE + CA Where: AE
 
@@ -4429,9 +4088,6 @@ CA
 If indoor temperature is less than the desired temperature minus one degree,
 then: AE = AE - CA Where:
 
-3-38
-
-AE
 
 = adjust end time from SSTO command.
 
@@ -4460,9 +4116,6 @@ HA
 = heating auto-stop coefficient (hcoef4) from SSTOCO command.
 
 
-3-39
-
-
 For heating mode at occupancy end If indoor temperature is greater than the
 desired temperature plus one degree, then AE = AE - HA: Where: AE
 
@@ -4475,9 +4128,6 @@ HA
 If indoor temperature is less than the desired temperature minus one degree,
 then: AE = AE + HA Where:
 
-3-40
-
-AE
 
 = adjust end time from SSTO command.
 
@@ -4505,9 +4155,6 @@ times.  TODSET - Sets the values of up to ten analog points at specified start
 and stop times during the day.
 
 
-3-41
-
-
 You can also use the HOLIDA command in conjunction with the group of TOD
 commands.  The HOLIDA command allows you to change the schedules for equipment
 during holidays. This command must be placed before any TOD or TODSET
@@ -4529,9 +4176,6 @@ Holiday
 
 The program contains the following PPCL TOD commands: 100 110 120 130
 
-3-42
-
-TODMOD(1,1,1,1,1,1,1) TOD(1,1,18:00,07:00,LITE1) TOD(1,1,18:00,19:00,FAN1)
 TOD(16,1,17:00,10:30,LITE1)
 
 
@@ -4591,9 +4235,6 @@ both PPCL HOLIDA and the TOD calendar Problems can occur if different holiday
 schedules are defined in the HOLIDA statement and defined Siemens Building
 Technologies, Inc.
 
-3-43
-
-
 in the TOD calendar, and then both methods are used at the same time. The
 equipment commanded by the PPCL TOD command for holiday mode 16 will execute
 not only the holidays defined in the HOLIDA statement, but also those defined
@@ -4615,9 +4256,6 @@ Holiday
 
 The following TOD commands are defined in the TOD database: Monday - Sunday
 
-3-44
-
-07:00:00
 
 OFF
 
@@ -4672,9 +4310,6 @@ C THIS LINE OF CODE TURNS THE LIGHTS C OFF AT 5:00 AM AND ON AT 7:00 PM.  C
 IF(TIME.GT.5:00.AND.TIME.LT.19:00)THEN OFF(LITES)ELSE ON(LITES)
 
 
-3-45
-
-
 APOGEE interaction with PPCL TOD APOGEE field panels contain an application
 called equipment scheduling, which replaces TOD in PPCL. Some portions of TOD
 programming are shared by equipment scheduling, specifically the system
@@ -4682,14 +4317,10 @@ calendar. Equipment scheduling uses replacement days and special days. The R1
 replacement day in equipment scheduling corresponds to the holiday in the
 TODMOD statement.
 
-3-46
-
-
 4
 Syntax
 
 
-4-1
 
 
 ACT 
@@ -4723,10 +4354,6 @@ statement.
 See also
 
 DEACT, DISABL, ENABLE
-
-4-2
-
-
 
 ALARM Physical
 
@@ -4767,8 +4394,6 @@ See also
 DISALM, ENALM, HLIMIT, LLIMIT, NORMAL
 
 
-4-3
-
 
 AUTO Physical
 
@@ -4798,8 +4423,6 @@ command.  Example 100
 
 See also
 
-4-4
-
 AUTO(EFAN1,EFAN2,EFAN3)
 
 FAST, OFF, ON, SLOW
@@ -4828,17 +4451,6 @@ status as DAY.
 See also
 
 NIGHT
-
-
-DBSWIT Physical
-
-Syntax
-
-Logical
-
-Unitary
-
-CM
 
 DBSWIT(type,input,low,high,pt1,...,pt12) type
 
@@ -5007,10 +4619,6 @@ FIRST 15 MINUTES - OFF, OFF, OFF (0) C SECOND 15 MINUTES - ON, OFF, ON (5) C
 THIRD 15 MINUTES - OFF, ON, ON (3) C FOURTH 15 MINUTES - OFF, OFF, ON (1)
 DC(EFAN1,1350)
 
-
-4-9
-
-
 The code numbers and patterns are evaluated by reading the time in 5-minute
 intervals from right to left. The first 15-minute pattern is determined by the
 right-most code digit. The last 15-minute pattern is determined by the
@@ -5025,10 +4633,6 @@ other commands with the same priority.
 See also
 
 DCR
-
-4-10
-
-
 
 DCR Physical
 
@@ -5080,10 +4684,6 @@ according to the value of the parameters. The output point is ON when the
 temperature point is above the high limit or below the low limit. When the
 point value is within the
 
-
-4-11
-
-
 range of the high and low limit, it is commanded OFF.  Example 200 210 220 230
 240 250
 
@@ -5100,10 +4700,6 @@ other commands with the same priority.
 See also
 
 DC
-
-4-12
-
-
 
 DEACT Physical
 
@@ -5150,9 +4746,6 @@ See also
 ACT, DISABL, ENABLE
 
 
-4-13
-
-
 DEFINE Physical
 
 Logical
@@ -5192,9 +4785,6 @@ ON(“BUILDING1.AHU01.SFAN”)
 This statement is executed when added to the field panel and does not require
 enabling or execution in the normal program flow.  DEFINE allows program logic
 to be easily duplicated provided your facility uses structured point names.
-
-4-14
-
 
 
 DISABL Physical
@@ -5236,9 +4826,6 @@ resides.
 See also
 
 ACT, DEACT, ENABLE
-
-
-4-15
 
 
 DISALM Physical
@@ -5283,9 +4870,6 @@ See also
 
 ALARM, ENALM, HLIMIT, LLIMIT, NORMAL
 
-4-16
-
-
 
 DISCOV Physical
 
@@ -5328,9 +4912,6 @@ IF (SFAN.EQ.OFF) THEN DISCOV(ROOM1, ROOM2) ELSE ENCOV(ROOM1,ROOM2)
 ENCOV
 
 
-4-17
-
-
 DPHONE Physical
 
 Logical
@@ -5370,9 +4951,6 @@ See also
 
 EPHONE
 
-4-18
-
-
 
 EMAUTO Physical
 
@@ -5404,9 +4982,6 @@ See also
 EMFAST, EMOFF, EMON, EMSET, EMSLOW
 
 
-4-19
-
-
 EMFAST Physical
 
 Logical
@@ -5435,9 +5010,6 @@ emergency priority. You can command up to 16 LFSSP or LFFSL points.
 See also
 
 EMAUTO, EMOFF, EMON, EMSET, EMSLOW
-
-4-20
-
 
 
 EMOFF Physical
@@ -5488,9 +5060,6 @@ See also
 EMAUTO, EMFAST, EMON, EMSET, EMSLOW
 
 
-4-21
-
-
 EMON Physical
 
 Logical
@@ -5538,9 +5107,6 @@ See also
 
 EMAUTO, EMFAST, EMOFF, EMSET, EMSLOW
 
-4-22
-
-
 
 EMSET Physical
 
@@ -5578,9 +5144,6 @@ See also
 EMAUTO, EMFAST, EMOFF, EMON, EMSLOW
 
 
-4-23
-
-
 EMSLOW Physical
 
 Logical
@@ -5609,9 +5172,6 @@ emergency priority. You can command a maximum of 16 LFSSP or LFFSL points.
 See also
 
 EMAUTO, EMFAST, EMOFF, EMON, EMSET
-
-4-24
-
 
 
 ENABLE Physical
@@ -5656,9 +5216,6 @@ See also
 ACT, DEACT, DISABL
 
 
-4-25
-
-
 ENALM Physical
 
 Syntax
@@ -5699,9 +5256,6 @@ command does not override \*ODSB\*.
 
 See also
 
-4-26
-
-ALARM, DISALM, HLIMIT, LLIMIT, NORMAL
 
 
 
@@ -5743,9 +5297,6 @@ statement must reside in the same device as the ENCOV command.  Example 50 IF
 See also
 
 DISCOV
-
-
-4-27
 
 
 EPHONE Physical
@@ -6088,9 +5639,6 @@ See also
 ALARM, DISALM, ENALM, LLIMIT, NORMAL
 
 
-4-39
-
-
 HOLIDA Physical
 
 Logical
@@ -6119,9 +5667,6 @@ HOLIDA and TODMOD commands must precede any TOD or TODSET commands in order
 for the program to operate correctly.  A HOLIDA or TODMOD command in a device
 will only affect TOD, TODSET and SSTO commands in that device.
 
-4-40
-
-
 
 When a holiday date occurs in a HOLIDA command, the mode number for that day
 in the TODMOD command is set to 16.  If holidays are defined using the HOLIDA
@@ -6137,9 +5682,6 @@ necessary according to the holiday schedule.
 See also
 
 TOD, TODMOD, TODSET
-
-
-4-41
 
 
 IF/THEN/ELSE 
@@ -6172,9 +5714,6 @@ This conditional logic command is used to provide customized decision logic.
 When the IF expression is true, the THEN command is executed. If the condition
 is false, the ELSE command (if defined) is executed. If the condition
 
-4-42
-
-
 
 is false and no ELSE command is present, execution continues with the next
 line of code.  Example 1 110
@@ -6190,9 +5729,6 @@ IF (TIME.GT.8:00.AND.TIME.LT.16:00) THEN ON(@NONE,SFAN) ELSE ON(@OPER, SFAN)
 GOSUB commands should not be used for the x or y parameters.  Time-based
 commands such as WAIT, and TODMOD should not be directly used for the x or y
 parameters.
-
-
-4-43
 
 
 INITTO Physical
@@ -6226,9 +5762,6 @@ points that are defined to be totalized can be initialized by this command.
 When used in APOGEE field panels (which can totalize individual states of a
 point), INITTO will reset all totalized states of a digital point to zero.
 
-4-44
-
-
 
 LLIMIT Physical
 
@@ -6258,8 +5791,6 @@ See also
 
 ALARM, DISALM, ENALM, HLIMIT, NORMAL
 
-
-
 LOCAL Physical
 
 LOCAL (pt1... pt16) pt1 through pt16
@@ -6279,9 +5810,6 @@ LOCAL(FANPT) ON($FANPT)
 Example 2 The following is an example of a program using the value of a local
 point in a different program (where PROG1 is the program name): 300
 
-4-46
-
-IF(“PROG1:FANPT”.EQ.ON)THEN ...
 
 
 
@@ -6290,13 +5818,14 @@ LOOP Physical
 
 Logical syntax
 
-
-LOOP(type,pv,cv,sp,pg,ig,dg,st,bias,lo,hi,0)  *vim-siemens-ppcl-loop*  *LOOP* *LOOP-PPCL*
+*vim-siemens-ppcl-loop*  *LOOP* *LOOP-PPCL*
+LOOP(type,pv,cv,sp,pg,ig,dg,st,bias,lo,hi,0)  
 
 type
 
-Designates the type of control action.  Your choices are as follows: 0 =
-direct acting.  128 = reverse acting.
+Designates the type of control action.  Your choices are as follows:
+ 0   = direct acting.
+ 128 = reverse acting.
 
 pv
 
@@ -6405,8 +5934,9 @@ Physical syntax
 
 LOOP(type,pv,cv,sp,pg,ig,dg,st,bias,lo,hi,0) type
 
-Designates the type of control action.  Your choices are as follows: 0 =
-direct acting.  128 = reverse acting.
+Designates the type of control action.  Your choices are as follows:
+ 0   = direct acting.
+ 128 = reverse acting.
 
 pv
 
@@ -6512,9 +6042,6 @@ automatically prevented for the integral action once the hi or low limit is
 reached.  The following example illustrates this concept: Example 2000 2002
 2004 2006 2008 2010 2012 2014 2016 2018 2020 2022
 
-4-56
-
-C CONTROL LOOP STATISTICS (PHYSICAL C FIRMWARE) C DIRECT CONTROL LOOP C INPUT
 = RM100 OUTPUT = HVALVE C SETPOINT = HSETPT C PROPORTIONAL GAIN = 4000 I GAIN
 = 10 C D GAIN = 0 C SAMPLE TIME = 1 SECOND C BIAS = 42 C LOW = 20 C HIGH = 120
 LOOP(0,RM100,HVALVE,HSETPT,4000, 10,0,1,42.0,20.0,120.0,0)
@@ -6543,7 +6070,7 @@ See also
 
 MAX(HOTZON,ZONE1,ZONE2,ZONE3, 9.0)
 
-MIN
+*MIN*
 
 MIN Physical
 
@@ -6567,11 +6094,8 @@ point.  Example 10
 
 See also
 
-4-58
 
-MIN(COOLZN,ZONE1,ZONE2,ZONE3,9.0)
-
-MAX
+|MAX|
 
 
 
@@ -6603,9 +6127,6 @@ See also
 DAY
 
 
-4-59
-
-
 NORMAL Physical
 
 NORMAL(pt1,...,pt16) pt1 through pt16
@@ -6621,9 +6142,6 @@ condition and returns them to their normal operating mode.  Example 100
 
 See also
 
-4-60
-
-IF (RM90T.GT.80.0) THEN ALARM(ROOM90) ELSE NORMAL(ROOM90)
 
 ALARM, DISALM, ENALM, HLIMIT, LLIMIT
 
@@ -6667,9 +6185,6 @@ See also
 AUTO, FAST, ON, SLOW
 
 
-4-61
-
-
 OIP Physical
 
 OIP(trigger, ''seq'') trigger
@@ -6690,9 +6205,6 @@ from within a PPCL program.  The OIP command uses a trigger point to determine
 the conditions for execution. When the trigger point is turned on, then the
 operator sequence is executed once. To execute the operator sequence again,
 the trigger point must be turned OFF, and then turned ON again.
-
-4-62
-
 
 
 Example 100 102 104 106 108 110 112 114 116 118 120 122 124 130 150
@@ -6717,9 +6229,6 @@ subpoint, you must command the point ON/OFF with the number 1 or 0. Using any
 text other than 1 or 0 will cause the statement to fail.
 
 
-4-63
-
-
 If the trigger point name begins with a number, then the point name should be
 preceded by an @ sign. If a variable in the keystroke sequence begins with a
 number, then the point name should not be preceded by an @ sign. For example:
@@ -6741,9 +6250,6 @@ Changes were made in revision 12.4/12.4.1 logical firmware to allow you to
 enter which trend instance you want to display. Use the following syntax for
 the Multi-Point Trend Report: OIP (TRIG, "P/T/D/P///
 Name1//Name2//Name3//10/")
-
-4-64
-
 
 
 ON 
@@ -6780,9 +6286,6 @@ IF (OATEMP.LT.60.0)THEN ON(@NONE, PUMP1,PUMP2)
 AUTO, FAST, OFF, SLOW
 
 
-4-65
-
-
 ONPWRT Physical
 
 ONPWRT(line#) line#
@@ -6807,9 +6310,6 @@ The ONPWRT command should be the first command in a PPCL program since program
 execution returns to the first line of a PPCL program after a power failure.
 If the database for a field panel is lost due to a power failure, the ONPWRT
 command is not executed when power is restored.
-
-4-66
-
 
 
 PARAMETER Physical
@@ -6836,9 +6336,6 @@ PARAMETER DELAY = 15 WAIT(DELAY,FAN1,FAN2)
 
 PARAMETER commands are usually placed at the top of the program so they are
 easy to find.  This command does not require a line number.
-
-
-4-67
 
 
 PDL Physical
@@ -6930,9 +6427,6 @@ of the set point, and not 100% as in earlier revisions.
 
 Example 100
 
-4-70
-
-PDL(1,TOTKW1,TGT1,100,199,0,200,299,1, 300,399,0,400,499,0)
 
 
 
@@ -6948,9 +6442,6 @@ integer 0.
 See also
 
 PDLDAT, PDLDPG, PDLMTR, PDLSET
-
-
-4-71
 
 
 PDLDAT Physical
@@ -7011,9 +6502,6 @@ See also
 PDL, PDLDPG, PDLMTR, PDLSET
 
 
-4-73
-
-
 PDLDPG Physical
 
 PDLDPG(area,kwtot1,target1,...,kwtot7,target7) area
@@ -7038,9 +6526,6 @@ priority (that is, if it was shed by the PDL algorithm).
 
 The totkw parameter must be the same virtual LAO point that is specified as
 the kwtot parameter in the owning PDLDPG command. The value of this
-
-4-74
-
 
 
 parameter is calculated by the PDL command.  target1 through target7
@@ -7067,9 +6552,6 @@ See also
 PDLDPG(1,TOTKW1,TGT1,TOTKW2,TGT2)
 
 PDL, PDLDAT, PDLMTR, PDLSET
-
-
-4-75
 
 
 PDLMTR Physical
@@ -7173,9 +6655,6 @@ With logical firmware, you can have one meter area defined in a field panel.
 If a LPACI point is used in a PDLMTR statement, then PDL should be restarted
 for that meter area after the LPACI is reset. If the LPACI is being
 
-4-78
-
-
 
 used with the Minicomputer's Peak Demand Limiting (PDL), then PDL must be
 stopped, the LPACI reset, and then PDL can be restarted.  When analog points
@@ -7185,9 +6664,6 @@ are used for mt1 through mt5, the engineering units are KWH.
 See also
 
 PDL, PDLDAT, PDLDPG, PDLSET
-
-
-4-79
 
 
 PDLSET Physical
@@ -7243,9 +6719,6 @@ See also
 PDL, PDLDAT, PDLDPG, PDLMTR
 
 
-4-81
-
-
 RELEAS Physical
 
 Logical
@@ -7275,18 +6748,12 @@ NONE priority.  A LAO or LDO point that is used in a RELEAS statement can
 generate multiple entries in the Trend Data Report if a command statement such
 as SET, =, ON, or OFF is used on the same point at the same time.
 
-4-82
-
-
 
 Notes
 
 Always use a priority at least as high as the one that the point will be in to
 ensure proper release. If the point has been commanded from the keyboard, it
 will require an @OPER entry to release the priority of the point to NONE.
-
-
-4-83
 
 
 RETURN 
@@ -7303,9 +6770,6 @@ return to the line following the GOSUB command Example
 
 See also
 
-4-84
-
-100 110 120 130 290
 
 GOSUB 310 ...  ...  ...  ...GO TO 350
 
@@ -7344,9 +6808,6 @@ an ENABLE command, or during the first execution of PPCL following a database
 load.
 
 
-4-85
-
-
 SET Physical
 
 SET(value,pt1,...,pt15) value
@@ -7361,9 +6822,6 @@ Point names that will have their priority set to NONE.
 Feature added to revision 9.2 logical firmware, CM and APOGEE firmware:
 SET(@prior, value, pt1,...,pt14)
 
-4-86
-
-@prior
 
 Defines a specific point priority.
 
@@ -7418,9 +6876,6 @@ define a total of 15 points.  Example 20
 
 See also
 
-4-88
-
-IF (RMTEMP.LT.75.0)THEN SLOW(@NONE, FAN1,FAN2)
 
 AUTO, FAST, OFF, ON
 
@@ -7455,14 +6910,8 @@ disabled (season = 0 in the SSTOCO command), then csp is assigned the latest
 stop time.
 
 
-4-89
-
-
 Use
 
-4-90
-
-est
 
 Earliest start time. This can be entered in military time, decimal time, or as
 a logical point name or local variable.
@@ -7529,9 +6978,6 @@ See also
 SSTOCO, TOD, TODSET
 
 
-4-91
-
-
 SSTOCO Physical
 
 SSTOCO(zone,season,intemp,outemp,ctemp,
@@ -7539,9 +6985,6 @@ ccoef1,ccoef2,ccoef3,ccoef4,htemp,hcoef1, hcoef2,hcoef3,hcoef4) For variables
 used in this command, you can use numbers, point names, or local variables.
 The values for the coefficients must be entered as follows:
 
-4-92
-
-• in minutes for revisions 5.0 logical firmware only.
 
 • in fractions of an hour for all other revisions of firmware
 
@@ -7604,9 +7047,6 @@ Heating coefficient - The time, in hours, that is required to raise the zone
 temperature one degree while ignoring external load factors.
 
 
-4-93
-
-
 Use
 
 hcoef2
@@ -7657,9 +7097,6 @@ parameter, only 14 points can be defined.
 This statement commands points using a state text value.  Example 500
 
 STATE(NIGHT,TEC1,TEC2,TEC3,TEC4)
-
-
-4-95
 
 
 TABLE Physical
@@ -7749,13 +7186,9 @@ the values should be taken (sample time) and the number of values to be taken.
 The average is always over the most recent sample count and all previous
 values are discarded.  Example 10 20 30 40 50 60
 
-4-98
-
 C SIX SAMPLES WILL BE TAKEN TO C CALCULATE THE RMAVG.  C THE INTERVAL BETWEEN
 EACH SAMPLE C WILL BE 10 MINUTES. RMTEMP WILL C BE AVERAGED EVERY 60 MINUTES.
 TIMAVG(RMAVG,600,6,RMTEMP)
-
-
 
 The average value will be updated every sample time.
 
@@ -7773,25 +7206,7 @@ execution of PPCL following a database load, the TIMAVG command begins
 executing with one sample. The value of the result will equal the current
 value of input.
 
-
-4-99
-
-
-TOD Physical
-
-Logical
-
-Unitary
-
-!  Syntax
-
-CM
-
-APOGEE
-
-!
-
-!
+*TOD* 
 
 TOD(mode,recomd,time1,time2,pt1,...,pt12) mode
 
@@ -7810,10 +7225,6 @@ failure (fail-safe position).  Recomd is sometimes necessary for field panel
 warmstarts.  Valid entries are as follows: 0 = Does not recommand the points,
 pt1 through pt12, on return from power failure.  1 = Recommand the points, pt1
 through pt12, on return from power failure.
-
-4-100
-
-
 
 Use
 
@@ -7847,25 +7258,7 @@ precedes, or is equal to, the current time.  See also
 
 HOLIDAY, SSTO, TODMOD, TODSET
 
-
-4-101
-
-
-TODMOD Physical
-
-Logical
-
-Unitary
-
-!  Syntax
-
-CM
-
-APOGEE
-
-!
-
-!
+*TODMOD*
 
 TODMOD(momode,tumode,wemode,thmode, frmode,samode,sumode) For all modes
 values, refer to the table following the mode descriptions: momode
@@ -7896,12 +7289,8 @@ sumode
 
 Mode number for Sunday. Valid entries are 1, 2, 4 or 8.  MODE 1 2 4 8 16\*
 
-4-102
-
 Schedule Normal Schedule Extended Schedule Shortened Schedule Weekend Schedule
 Holiday Schedule
-
-
 
 Days that have the same schedule are assigned the same MODE.  \*Mode number 16
 is not entered into the TODMOD command.
@@ -7929,25 +7318,7 @@ See also
 
 HOLIDA, TOD, TODSET
 
-
-4-103
-
-
-TODSET Physical
-
-Logical
-
-Unitary
-
-!  Syntax
-
-CM
-
-APOGEE
-
-!
-
-!
+*TODSET*
 
 TODSET(mode,recomd,time1,val1,time2,val2,pt1,.  .., pt10) mode
 
@@ -7965,9 +7336,6 @@ Determines if the points defined will be commanded after a return from a power
 failure (fail-safe position).  Recomd is sometimes necessary for field panel
 warmstarts.  Valid entries are as follows: 0 = Does not recommand the points,
 pt1 through pt10, on return from power failure.
-
-4-104
-
 
 
 1 = Recommand the points, pt1 through pt10, on return from power failure.
@@ -7999,10 +7367,6 @@ pt1 through pt10
 
 Names of analog output points that are commanded ON and OFF.
 
-
-4-105
-
-
 Use
 
 This command is the counterpart of the TOD command for analog points. It
@@ -8013,15 +7377,11 @@ and val2 at the specified times.  Example 550
 
 See also
 
-4-106
-
 TODSET(1,1,9:00,72.0,17:00,55.0, SPTEMP)
 
 HOLIDAY, TOD, TODMOD
 
-
-
-WAIT 
+*WAIT*
 
 Logical syntax
 
@@ -8047,10 +7407,6 @@ mode
 Defines the value to which pt2 should be commanded based on the value of pt1.
 The following table lists valid modes.
 
-
-4-107
-
-
 Mode
 
 Meaning
@@ -8070,8 +7426,6 @@ then turn pt2 ON.  When pt1 turns OFF, wait time seconds then turn pt2 OFF.
 Physical syntax
 
 Use
-
-4-108
 
 WAIT(time,pt1,pt2)
 
@@ -8119,19 +7473,8 @@ trigger point must be toggled before the command executes regardless of the
 current state of either pt1 or pt2.  The command to pt2 is only issued once
 during the normal operation of the program until triggered again.
 
-
-4-109
-
-
-4-110
-
-
-5
-Glossary
-
-
-5-1
-
+5 Glossary~
+========================================================================
 
 This chapter contains programming terminology you will encounter in this
 manual. Refer to this chapter when you need information about a specific term.
@@ -8140,11 +7483,6 @@ and groups of letters placed on this list are used by the PPCL compiler. If
 you use any of the entries on the word list in a way other than the way they
 are designed (for example, defining a reserved word as a point name), your
 PPCL program will not operate properly.
-
-5-2
-
-
-5 - Glossary
 
 Glossary of terms APOGEE firmware Firmware used in APOGEE field panels.
 Argument Type of variable whose value is not a direct function of another
@@ -8162,10 +7500,6 @@ specific priority, or to command a point to a specific priority. A maximum of
 indicator with PPCL statements, the priority level you define in that
 statement occupies one of the parameters.
 
-
-5-3
-
-
 CM firmware Firmware used in Controller Modules and early revision Open
 Processors.  Command Instruction evaluated by the computer.  Comment line
 Information that is written into the program but is not interpreted as a
@@ -8180,12 +7514,9 @@ device represents any field panel or equipment controller that can execute
 PPCL statements.  Execute To carry out the instruction of an expression or
 program.
 
-5-4
+*Expression*
 
-
-5 - Glossary
-
-Expression Statement that describes a set of variables, constants, or values
+Statement that describes a set of variables, constants, or values
 combined with arithmetic, logical, or relational operators.  Firmware Portion
 of software used in a controller that is stored in non-volatile memory. See
 Logical, Physical, Unitary, CM or AOPGEE firmware.  Integer Whole number
@@ -8199,11 +7530,9 @@ two conditions is called a condition. If the result of the condition is true,
 then a specific action is taken. If the result is false, then an alternative
 action is performed.
 
+*Modular-programming*
 
-5-5
-
-
-Modular programming Style of programming that logical organizes code into
+Style of programming that logical organizes code into
 common functions, such as operational modes.  Order of precedence Order in
 which operators (mathematical, relational, logical, and special function) are
 evaluated in a command statement. Operators that have a higher precedence are
@@ -8218,12 +7547,12 @@ The result of the comparison is called a condition, and determines the type of
 action that should be taken.  Resident point Predefined logical point that
 permanently resides in the PPCL program in the field panel.
 
-5-6
 
+5 - Glossary~
+========================================================================
 
-5 - Glossary
-
-Routing Method for altering the flow of a program to transfer control to a
+*Routing*
+Method for altering the flow of a program to transfer control to a
 line of the program other than the next sequential line number.  Special
 function PPCL functions such as Alarm Priority (ALMPRI) that are used to
 access a specific value that is unique to a point. The value of the point can
@@ -8235,10 +7564,6 @@ statement can also be considered a line of PPCL code.  Subroutine Portion of
 program code referenced repeatedly through one pass of the program.  Unitary
 firmware Firmware that uses a subset of PPCL commands found in logical
 firmware.
-
-
-5-7
-
 
 PPCL reserved word list The following predefined points permanently reside in
 the field panel’s point database. These names are reserved for specific
@@ -8409,10 +7734,6 @@ Root
 ..............................................................................
 2-35
 
-
-6-1
-
-
 Sine...............................................................................
 2-36 Square root
 ................................................................... 2-37
@@ -8452,53 +7773,6 @@ Comment Lines
 ................................................................. 2-95
 Communications link (resident point)................................. 2-55
 
-6-2
-
-
-6 - Index
-Complement (arithmetic function)...................................... 2-31
-Conditions
-...........................................................................
-2-9 COS (arithmetic
-operator).................................................. 2-32 Cosine
-(arithmetic function) ............................................... 2-32
-CRTIME (resident point) ....................................................
-2-52 Current time (resident point) ..................................... 2-52,
-2-61 D DAY
-(command)..................................................................
-4-5 DAY (resident point)
-.......................................................... 2-53 DAYMOD (status
-indicator) ............................................... 2-79 DAYOFM
-(resident point) .................................................. 2-54
-DBSWIT (command) ...........................................................
-4-6 DC (command)
-.................................................................... 4-8 DCR
-(command)................................................................ 4-11
-DEACT (command) ...........................................................
-4-13 DEAD (status indicator)
-..................................................... 2-77 Decimal time
-(resident point) ............................................. 2-52 Decision
-tables .................................................................. 2-96
-DEFINE (command) ..........................................................
-4-14 DISABL
-(command)........................................................... 4-15
-DISALM (command) ..........................................................
-4-16 DISCOV
-(command).......................................................... 4-17
-Division (arithmetic operator) .............................................
-2-26 DPHONE (command) ........................................................
-4-18 Duty Cycling (control
-option)................................................ 3-3 E EMAUTO (command)
-........................................................ 4-19 EMER (priority)
-.................................................................. 2-67
-Emergency (priority)
-.......................................................... 2-67 EMFAST
-(command)......................................................... 4-20
-
-
-6-3
-
-
 EMOFF (command)...........................................................
 4-21 EMON
 (command)............................................................. 4-22
@@ -8530,8 +7804,6 @@ Greater than or equal to.....................................................
 2-11 GT, Greater than (relational operator)................................
 2-12 Guidelines ............................................... see PPCL
 guidelines
-
-6-4
 
 
 6 - Index
@@ -8569,8 +7841,6 @@ LT, less than (relational operator) ......................................
 2-14
 
 
-6-5
-
 
 M Manual
 conventions............................................................. 1-5
@@ -8605,9 +7875,6 @@ Not equal to (relational operator) .......................................
 (command)..................................................................
 4-65 ON (status
 indicator).......................................................... 2-85
-
-6-6
-
 
 6 - Index
 ONPWRT (command) ....................................................... 4-66
@@ -8681,8 +7948,6 @@ numbers..................... 2-4 Program logic documenting using comment lines
 Quotes in programs
 ............................................................. 2-4
 
-6-8
-
 
 6 - Index
 R Relational operators Equal
@@ -8722,9 +7987,6 @@ function)................................................ 2-35 S SAMPLE
 through SECND7 (resident point) ....................... 2-60 SECNDS (resident
 point)................................................... 2-59 SET (command)
 ................................................................ 4-86
-
-
-6-9
 
 
 SIN (arithmetic function) ....................................................
@@ -8769,9 +8031,6 @@ OK..............................................................................
 ................................................................................
 2-86
 
-6-10
-
-
 6 - Index
 PRFON ......................................................................... 2-87
 SLOW ...........................................................................  2-88
@@ -8807,9 +8066,6 @@ TODSET (command)....................................................... 4-104
 TOTAL (special function) ...................................................  2-41 
 U Unoccupied mode (UNOCC) See ...............................................................................
 4-59
-
-
-6-11
 
 
 W WAIT (command) ............................................................  4-107 
@@ -8869,7 +8125,6 @@ Represents the high temperature at which a switching action occurs. This
 parameter can contain a decimal or integer value. The parameter can be defined
 as a point name, local variable, or number.
 
-
 pt1 through pt12
 
 Names of the points to be turned ON and OFF. Local variables can be used.
@@ -8884,4 +8139,4 @@ Example 1
 Example 2 
 
 200 DBSWIT(1,RMTEMP,55,58,SFAN,RFAN)
- vim:tw=78:ts=8:ft=help:norl:
+ vim:tw=78:ts=8:ft=help:norl:noreadonly:modifiable:

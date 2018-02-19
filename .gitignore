@@ -1,2 +1,5 @@
 *.swp
-doc/tags
+doc
+/tags
+
+tags
