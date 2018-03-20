@@ -723,16 +723,6 @@ resolution of a point before comparing a value with this relational operator.
 
 Greater than or equal to (.GE.) Physical
 
-Syntax
-
-Logical
-
-Unitary
-
-CM
-
-APOGEE
-
 
 if (value1.GE.value2) then...  value1, value2
 
@@ -5418,7 +5408,7 @@ from 1 through 32,767.
 
 When this command is executed, the next line to be evaluated will be the line
 specified in the command. When the computer encounters a RETURN command in the
-subroutine, the next line executed will be the line following the GOSUB
+subroutine, the next line executed will be the line following the |GOSUB|
 statement.  Subroutines are particularly useful for programs in which the same
 calculation is carried out several times using different values.  The variable
 parameters in a subroutine are designated by the resident point names $ARG1
@@ -5559,7 +5549,7 @@ The last line of a subroutine must be a RETURN command.  Do not use time-based
 commands such as LOOP, SAMPLE, TOD, and WAIT inside a subroutine.  Do not
 transfer control out of a subroutine without using a RETURN command. A GOTO
 command can be used inside of a subroutine only if the command does not
-transfer program control out of that subroutine.  A GOSUB command cannot be
+transfer program control out of that subroutine.  A |GOSUB| command cannot be
 used in an IF/THEN/ELSE command.  A GOSUB command can only reference point
 names or local variables.
 
@@ -5586,7 +5576,7 @@ Notes
 
 IF (FANRUN.GE.1000) THEN GOTO 50
 
-A GOTO command should only transfer program control to a sequentially higher
+A |GOTO| command should only transfer program control to a sequentially higher
 line number.  If the line number indicated in the GOTO does not exist,
 execution is transferred to the next line after the line number specified in
 the GOTO command.  A GOTO command should not transfer program control to a
@@ -5596,7 +5586,7 @@ commands (LOOP, WAIT, etc.) will not function properly.
 
 See also
 
-GOSUB
+|GOSUB|
 
 HLIMIT Physical
 
@@ -6039,14 +6029,20 @@ it with a desired value (the set point), and adjusts an output (control
 variable) to bring the input closer to the set point. The LOOP command is the
 software counterpart to a pneumatic receiver controller.  Anti-windup is
 automatically prevented for the integral action once the hi or low limit is
-reached.  The following example illustrates this concept: Example 2000 2002
-2004 2006 2008 2010 2012 2014 2016 2018 2020 2022
+reached.  The following example illustrates this concept: 
 
-= RM100 OUTPUT = HVALVE C SETPOINT = HSETPT C PROPORTIONAL GAIN = 4000 I GAIN
-= 10 C D GAIN = 0 C SAMPLE TIME = 1 SECOND C BIAS = 42 C LOW = 20 C HIGH = 120
-LOOP(0,RM100,HVALVE,HSETPT,4000, 10,0,1,42.0,20.0,120.0,0)
+Example 
 
-
+2004 C DIRECT CONTROL LOOP
+2006 C INPUT = RM100  OUTPUT = HVALVE
+2008 C SETPOINT = HSETPT
+2010 C PROPORTIONAL GAIN = PGAIN-NO I OR G
+2012 C GAINS
+2014 C SAMPLE TIME = 1 SECOND
+2016 C BIAS = 42
+2018 C LOW = 20
+2020 C HIGH = 120
+2022 LOOP(0,RM100,HVALVE,HSETPT,4000, 10,0,1,42.0,20.0,120.0,0)
 
 Syntax
 
@@ -6286,7 +6282,9 @@ IF (OATEMP.LT.60.0)THEN ON(@NONE, PUMP1,PUMP2)
 AUTO, FAST, OFF, SLOW
 
 
-ONPWRT Physical
+*ONPWRT* 
+
+Physical
 
 ONPWRT(line#) line#
 
@@ -6756,7 +6754,7 @@ ensure proper release. If the point has been commanded from the keyboard, it
 will require an @OPER entry to release the priority of the point to NONE.
 
 
-RETURN 
+*RETURN*
 
 Syntax
 
@@ -7514,7 +7512,7 @@ device represents any field panel or equipment controller that can execute
 PPCL statements.  Execute To carry out the instruction of an expression or
 program.
 
-*Expression*
+Expression~
 
 Statement that describes a set of variables, constants, or values
 combined with arithmetic, logical, or relational operators.  Firmware Portion
@@ -7530,7 +7528,7 @@ two conditions is called a condition. If the result of the condition is true,
 then a specific action is taken. If the result is false, then an alternative
 action is performed.
 
-*Modular-programming*
+Modular-programming~
 
 Style of programming that logical organizes code into
 common functions, such as operational modes.  Order of precedence Order in
@@ -7551,7 +7549,7 @@ permanently resides in the PPCL program in the field panel.
 5 - Glossary~
 ========================================================================
 
-*Routing*
+Routing~
 Method for altering the flow of a program to transfer control to a
 line of the program other than the next sequential line number.  Special
 function PPCL functions such as Alarm Priority (ALMPRI) that are used to
@@ -8079,9 +8077,12 @@ MAX(result,pt1,...,pt15)            				*MAX*
 
 TABLE(input,output,x1,y1,...,x7,y7)   				*TABLE*
 
-input = (x) output = (y) x1,y1,...,x7,y7 = pairs of points defining the table,
-values are interpolated in between. Must be put in ascending order by x. 
+input = (x) 
 
+output = (y) 
+
+x1,y1,...,x7,y7 = pairs of points defining the table,
+values are interpolated in between. Must be put in ascending order by x. 
 
 
 LOCAL(pt1,..., pt16)                				*LOCAL* 
@@ -8095,12 +8096,15 @@ can reference these points by referencing the program name, followed by the
 system delimiter (:), followed by the local point name.
 
 Example 1 The following is an example of commanding a local point contained
-within a program: 100 200
+within a program: 
 
-LOCAL(FANPT) ON($FANPT)
+100 LOCAL(FANPT) 
+200 ON($FANPT)
 
 
 DBSWIT(type,input,low,high,pt1,...,pt12)   			*DBSWIT*
+
+type:
 
 The type of dead band switch action.  Valid values are 0 and 1.  0 = All
 output points (pt1,...,pt12) are commanded ON when the input point value rises
