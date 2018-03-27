@@ -4442,7 +4442,7 @@ See also
 
 NIGHT
 
-DBSWIT(type,input,low,high,pt1,...,pt12) type
+DBSWIT(type,input,low,high,pt1,...,pt12) type                *DBSWIT*
 
 The type of dead band switch action.  Valid values are 0 and 1.  0 = All
 output points (pt1,...,pt12) are commanded ON when the input point value rises
@@ -7141,25 +7141,11 @@ Notes
 Table statements can be cascaded by overlapping x-y pairs using virtual
 points.
 
-TIMAVG Physical
+TIMAVG Physical                                  *TIMAVG*
 
-Logical
+TIMAVG(result,st,samples,input) 
 
-!  Syntax
-
-Use
-
-Unitary
-
-CM
-
-APOGEE
-
-!
-
-!
-
-TIMAVG(result,st,samples,input) result
+result
 
 A point name used to store the result of the average value. Local variables
 can also be used.
@@ -7184,8 +7170,11 @@ the values should be taken (sample time) and the number of values to be taken.
 The average is always over the most recent sample count and all previous
 values are discarded.  Example 10 20 30 40 50 60
 
-C SIX SAMPLES WILL BE TAKEN TO C CALCULATE THE RMAVG.  C THE INTERVAL BETWEEN
-EACH SAMPLE C WILL BE 10 MINUTES. RMTEMP WILL C BE AVERAGED EVERY 60 MINUTES.
+C SIX SAMPLES WILL BE TAKEN TO 
+C CALCULATE THE RMAVG.  
+C THE INTERVAL BETWEEN EACH SAMPLE 
+C WILL BE 10 MINUTES. RMTEMP WILL 
+C BE AVERAGED EVERY 60 MINUTES.
 TIMAVG(RMAVG,600,6,RMTEMP)
 
 The average value will be updated every sample time.
@@ -8101,46 +8090,4 @@ within a program:
 100 LOCAL(FANPT) 
 200 ON($FANPT)
 
-
-DBSWIT(type,input,low,high,pt1,...,pt12)   			*DBSWIT*
-
-type:
-
-The type of dead band switch action.  Valid values are 0 and 1.  0 = All
-output points (pt1,...,pt12) are commanded ON when the input point value rises
-above the high limit, and are commanded OFF when the input point value falls
-below the low limit.  1 = All output points (pt1,...,pt12) are commanded ON
-when the input point value falls below the low limit, and are commanded OFF
-when the input point value rises above the high limit.
-
-input:
-
-Point name of the analog point. This can also be a local variable.
-
-low:
-
-Represents the low temperature at which a switching action occurs. This
-parameter can contain a decimal or integer value. The parameter can be defined
-as a point name, local variable, or number.
-
-high:
-
-Represents the high temperature at which a switching action occurs. This
-parameter can contain a decimal or integer value. The parameter can be defined
-as a point name, local variable, or number.
-
-pt1 through pt12
-
-Names of the points to be turned ON and OFF. Local variables can be used.
-
-This command is used to obtain an ON/OFF switching action of an output point.
-The operational status of the point is regulated by an analog point using a
-predefined dead band. This is the software equivalent of a thermostat.
-Example 1 
-
-200 DBSWIT(1,RMTEMP,LDBAND,HDBAND,SFAN, RFAN)
-
-Example 2 
-
-200 DBSWIT(1,RMTEMP,55,58,SFAN,RFAN)
- vim:tw=78:ts=8:ft=help:norl:noreadonly:modifiable:
+ vim:tw=78:ts=8:ft=help:norl:noreadonly:modifiable:nospell:
