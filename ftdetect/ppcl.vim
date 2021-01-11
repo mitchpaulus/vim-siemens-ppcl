@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.ppcl set filetype=ppcl
+au BufNewFile,BufRead *.ppcl,*.PPCL set filetype=ppcl

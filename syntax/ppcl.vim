@@ -4,45 +4,45 @@ if exists("b:current_syntax")
     finish
 endif
 
-syntax match pplcNumber "\v%>6c<([0-9]+\.?[0-9])>"
-highlight link pplcType Number
+syntax match ppclNumber "\v%>6c<([0-9]+\.?[0-9])>"
+highlight link ppclType Number
 
-syntax match pplcVariable "\v\%.{-}\%"
-highlight link pplcVariable Keyword
+syntax match ppclVariable "\v\%.{-}\%"
+highlight link ppclVariable Keyword
 
-syntax keyword pplcKeyword THEN IF ELSE GOTO GOSUB
-syntax match pplcKeyword "\v\.AND\."
-syntax match pplcKeyword "\v\.OR\."
-syntax match pplcKeyword "\v\.NE\."
-syntax match pplcKeyword "\v\.EQ\."
-syntax match pplcKeyword "\v\.LE\."
-syntax match pplcKeyword "\v\.LT\."
-syntax match pplcKeyword "\v\.GE\."
-syntax match pplcKeyword "\v\.GT\."
-syntax match pplcKeyword "\v\.XOR\."
-syntax match pplcKeyword "\v\.ROOT\."
-syntax match pplcKeyword "\vRETURN"
+syntax keyword ppclKeyword THEN IF ELSE GOTO GOSUB
+syntax match ppclKeyword "\v\.AND\."
+syntax match ppclKeyword "\v\.OR\."
+syntax match ppclKeyword "\v\.NE\."
+syntax match ppclKeyword "\v\.EQ\."
+syntax match ppclKeyword "\v\.LE\."
+syntax match ppclKeyword "\v\.LT\."
+syntax match ppclKeyword "\v\.GE\."
+syntax match ppclKeyword "\v\.GT\."
+syntax match ppclKeyword "\v\.XOR\."
+syntax match ppclKeyword "\v\.ROOT\."
+syntax match ppclKeyword "\vRETURN"
 
-highlight link pplcKeyword Conditional
+highlight link ppclKeyword Conditional
 
-syntax match pplcFunction "\vTABLE\ze\("
-syntax match pplcFunction "\vSET\ze\("
-syntax match pplcFunction "\vDBSWIT\ze\("
-syntax match pplcFunction "\vDEFINE\ze\("
-syntax match pplcFunction "\vLOCAL\ze\("
-syntax match pplcFunction "\vLOOP\ze\("
-syntax match pplcFunction "\vDAY\ze\("
-syntax match pplcFunction "\vMAX\ze\("
-syntax match pplcFunction "\vMIN\ze\("
-syntax match pplcFunction "\vSAMPLE\ze\("
-syntax match pplcFunction "\vEMOFF\ze\("
-syntax match pplcFunction "\vONPWRT\ze\("
-syntax match pplcFunction "\vRELEAS\ze\("
-syntax match pplcFunction "\vTIMAVG\ze\("
-syntax match pplcFunction "\vEMON\ze\("
+syntax match ppclFunction "\vTABLE\ze\("
+syntax match ppclFunction "\vSET\ze\("
+syntax match ppclFunction "\vDBSWIT\ze\("
+syntax match ppclFunction "\vDEFINE\ze\("
+syntax match ppclFunction "\vLOCAL\ze\("
+syntax match ppclFunction "\vLOOP\ze\("
+syntax match ppclFunction "\vDAY\ze\("
+syntax match ppclFunction "\vMAX\ze\("
+syntax match ppclFunction "\vMIN\ze\("
+syntax match ppclFunction "\vSAMPLE\ze\("
+syntax match ppclFunction "\vEMOFF\ze\("
+syntax match ppclFunction "\vONPWRT\ze\("
+syntax match ppclFunction "\vRELEAS\ze\("
+syntax match ppclFunction "\vTIMAVG\ze\("
+syntax match ppclFunction "\vEMON\ze\("
 " Arithmetic operators
 
-let arithmeticFunctions = ["ATN", 
+let arithmeticFunctions = ["ATN",
             \ "COM",
             \ "COS",
             \ "EXP",
@@ -52,19 +52,19 @@ let arithmeticFunctions = ["ATN",
             \ "TAN" ]
 
 for arithmeticFunction in arithmeticFunctions
-    execute 'syntax match pplcFunction "\v' . arithmeticFunction . '\ze\("'
+    execute 'syntax match ppclFunction "\v' . arithmeticFunction . '\ze\("'
 endfor
 
-"syntax match pplcFunction "\vCOS\ze\("
-"syntax match pplcFunction "\vCOS\ze\("
-highlight link pplcFunction Function
+"syntax match ppclFunction "\vCOS\ze\("
+"syntax match ppclFunction "\vCOS\ze\("
+highlight link ppclFunction Function
 
 " At (@) priority indicators
-syntax match pplcType "\v\@EMER"
-syntax match pplcType "\v\@OPER"
-syntax match pplcType "\v\@SMOKE"
-syntax match pplcType "\v\@NONE"
-syntax match pplcType "\v\@PDL"
+syntax match ppclType "\v\@EMER"
+syntax match ppclType "\v\@OPER"
+syntax match ppclType "\v\@SMOKE"
+syntax match ppclType "\v\@NONE"
+syntax match ppclType "\v\@PDL"
 "
 " Point status indicators
 
@@ -86,26 +86,27 @@ let pointStatusIndicators = [
             \ "SLOW"]
 
 for pointStatusIndicator in pointStatusIndicators
-    execute 'syntax match pplcType "\v<' . pointStatusIndicator . '>"'
+    execute 'syntax match ppclType "\v<' . pointStatusIndicator . '>"'
 endfor
 
-"syntax match pplcType "ALARM"
-"syntax match pplcType "ALMACK"
-"syntax match pplcType "AUTO"
-"syntax match pplcType "FAILED"
-"syntax match pplcType "\v<OFF>"
-"syntax match pplcType "\v<ON>"
-"syntax match pplcType "PRFON"
-highlight link pplcType Type
+"syntax match ppclType "ALARM"
+"syntax match ppclType "ALMACK"
+"syntax match ppclType "AUTO"
+"syntax match ppclType "FAILED"
+"syntax match ppclType "\v<OFF>"
+"syntax match ppclType "\v<ON>"
+"syntax match ppclType "PRFON"
+highlight link ppclType Type
 
 
-syntax match pplcIdentifier "\v\$\w+"
-highlight link pplcIdentifier Identifier
+syntax match ppclIdentifier "\v\$\w+"
+highlight link ppclIdentifier Identifier
 
-"syntax match pplcPoint "\v\".{-}\""
-"highlight link pplcType String
+syntax match ppclPoint contains=ppclVariable "\v\".{-}\""
+highlight link ppclPoint String
 
-syntax match pplcComment "\v^[0-9]{5}\tC.*$"
-highlight link pplcComment Comment
+syntax match ppclComment "\v^[0-9]+(\t| +)\zsC($|(\t| +).*$)"
+highlight link ppclComment Comment
 
-let b:current_syntax="pplc"
+
+let b:current_syntax="ppcl"
