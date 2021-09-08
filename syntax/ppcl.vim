@@ -4,6 +4,9 @@ if exists("b:current_syntax")
     finish
 endif
 
+" Reminder: \v means 'very magic'. All non alphanumeric characters and _ have
+" the special meaning.
+
 syntax match ppclNumber "\v%>6c<([0-9]+\.?[0-9])>"
 highlight link ppclType Number
 
@@ -105,7 +108,7 @@ highlight link ppclIdentifier Identifier
 syntax match ppclPoint contains=ppclVariable "\v\".{-}\""
 highlight link ppclPoint String
 
-syntax match ppclComment "\v^[0-9]+(\t| +)\zsC($|(\t| +).*$)"
+syntax match ppclComment "\v^[0-9]+(\t| +)\zsC([¶]?$|(\t| +).*$)"
 highlight link ppclComment Comment
 
 
