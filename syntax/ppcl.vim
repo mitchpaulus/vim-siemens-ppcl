@@ -10,6 +10,8 @@ endif
 syntax match ppclNumber "\v%>6c<([0-9]+\.?[0-9])>"
 highlight link ppclType Number
 
+syntax match ppclLineEnding conceal "¶"
+
 syntax match ppclVariable "\v\%.{-}\%"
 highlight link ppclVariable Keyword
 
@@ -108,7 +110,7 @@ highlight link ppclIdentifier Identifier
 syntax match ppclPoint contains=ppclVariable "\v\".{-}\""
 highlight link ppclPoint String
 
-syntax match ppclComment "\v^[0-9]+(\t| +)\zsC([¶]?$|(\t| +).*$)"
+syntax match ppclComment "\v^[0-9]+(\t| +)\zsC([¶]?$|(\t| +).*$)" contains=ppclLineEnding
 highlight link ppclComment Comment
 
 
